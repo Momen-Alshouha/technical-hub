@@ -59,6 +59,10 @@ Route::get('/qustions', function () {
     return view('qustions');
 });
 
+Route::get('/admin/login', function () {
+    return view('admin.login');
+});
+
 
 
 
