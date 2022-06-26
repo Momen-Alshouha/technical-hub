@@ -1,0 +1,67 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+Route::get('/', function () {
+    return view('home');
+});
+
+Route::get('admin', function () {
+    return view('admin.index');
+})->name('admin');
+
+Route::get('admin/users', function () {
+    return view('admin.users');
+})->name('admin/users');
+
+Route::get('admin/addquiz', function () {
+    return view('admin.add_quiz');
+})->name('admin/add_quiz');
+
+Route::get('admin/addqustions', function () {
+    return view('admin.add_qustions');
+})->name('admin/add_qustions');
+
+Route::get('admin/qustions', function () {
+    return view('admin.qustions');
+})->name('admin/add_interview_qustions');
+
+
+Route::get('/userprofile', function () {
+    return view('user_profile');
+});
+
+Route::get('/about', function () {
+    return view('about');
+});
+
+Route::get('/contact', function () {
+    return view('contact');
+});
+
+Route::get('/quizzes', function () {
+    return view('quizzes');
+});
+
+
+Route::get('/qustions', function () {
+    return view('qustions');
+});
+
+
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
