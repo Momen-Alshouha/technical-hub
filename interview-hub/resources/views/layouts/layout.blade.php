@@ -70,8 +70,8 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="/" class="nav-item nav-link {{Request::is('/') ? 'active' : ''}}">Home</a>
-                <a href="qustions" class="nav-item nav-link {{Request::is('qustions') ? 'active' : ''}}">Qustions</a>
-                <a href="quizzes" class="nav-item nav-link {{Request::is('quizzes') ? 'active' : ''}}">Quizzes</a>
+                {{-- <a href="qustions" class="nav-item nav-link {{Request::is('qustions') ? 'active' : ''}}">Qustions</a>
+                <a href="quizzes" class="nav-item nav-link {{Request::is('quizzes') ? 'active' : ''}}">Quizzes</a> --}}
                 {{-- <a href="courses.html" class="nav-item nav-link {{Request::is('/') ? 'active' : ''}}" >Courses</a> --}}
                 <a href="about" class="nav-item nav-link {{Request::is('about') ? 'active' : ''}}">About</a>
                 <a href="contact" class="nav-item nav-link {{Request::is('contact') ? 'active' : ''}}">Contact</a>
@@ -86,10 +86,12 @@
     
                         @if (Route::has('register'))
                             <li class="nav-item">
-                                <a href="{{ route('register') }}" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Join Now<i class="fa fa-arrow-right ms-3"></i></a>
+                                <a href="{{ route('register') }}" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Join To Start<i class="fa fa-arrow-right ms-3"></i></a>
                             </li>
                         @endif
                     @else
+                    <a href="qustions" class="nav-item nav-link {{Request::is('qustions') ? 'active' : ''}}">Qustions</a>
+                    <a href="quizzes" class="nav-item nav-link {{Request::is('quizzes') ? 'active' : ''}}">Quizzes</a>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}

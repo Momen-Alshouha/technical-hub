@@ -57,14 +57,11 @@
                     <p class="mb-4">We also get you connected with the right companies worldwide based on your skills and preferences, and do everything needed to make sure you get your dream job. </p>
                     <div class="row gy-2 gx-4 mb-4">
                         <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Quistions</p>
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Interview Quistions</p>
                         </div>
                         <div class="col-sm-6">
                             <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Online Exams</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Mock Interviews</p>
-                        </div>                       
+                        </div>                 
                     </div>
                 </div>
             </div>
@@ -81,42 +78,32 @@
                 <h1 class="mb-5">Check Our Services!</h1>
             </div>
             <div class="row g-4">
-                <div src="www.google.com" class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div src="www.google.com" class="col-lg-6 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="service-item text-center pt-3">
                         <div class="p-4">
                             <i class="fa fa-3x fa-graduation-cap text-primary mb-4"></i>
                             <h5 class="mb-3">Online Exams</h5>
-                            <p>Test Your knowlege and take our exams .</p>
+                            <p>Test Your knowlege and take our exams.</p>
+                            @if (Auth::check())
+                                <button class="btn btn-primary"> Visit Exams</button>
+                            @endif
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="col-lg-6 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="service-item text-center pt-3">
                         <div class="p-4">
                             <i class="fa fa-3x fa-globe text-primary mb-4"></i>
                             <h5 class="mb-3">Interview quistions</h5>
-                            <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                            <p>Take A look To The Most Asked Interview Qustions.</p>
+                            @if(Auth::check()){
+                             <button>Visit Qustions</button>   
+                            } 
+                            @endif
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="service-item text-center pt-3">
-                        <div class="p-4">
-                            <i class="fa fa-3x fa-home text-primary mb-4"></i>
-                            <h5 class="mb-3">Mock interview</h5>
-                            <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
-                    <div class="service-item text-center pt-3">
-                        <div class="p-4">
-                            <i class="fa fa-3x fa-book-open text-primary mb-4"></i>
-                            <h5 class="mb-3">Ask Quistions</h5>
-                            <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
-                        </div>
-                    </div>
-                </div>
+               
             </div>
         </div>
     </div>

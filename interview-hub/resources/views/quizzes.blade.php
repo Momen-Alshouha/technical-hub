@@ -14,9 +14,7 @@
 
     <div class="container-xxl py-5 category">
         <div class="container">
-            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h1 class="mb-5">Qustions Categories</h1>
-            </div>
+            
             <div class="row g-4">
                 <div class="col-lg-12 col-md-4">
                     <div class="row g-3">
