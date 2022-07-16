@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('interview__qustions', function (Blueprint $table) {
             $table->id();
-            $table->integer('cat_id');
+            $table->unsignedBigInteger('cat_id');
             $table->text('qustion');
             $table->text('answer');
             $table->timestamps();
-            $table->foreign('option_id')->references('id')->on('options')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('cat_id')->references('id')->on('interview__qus__cats')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

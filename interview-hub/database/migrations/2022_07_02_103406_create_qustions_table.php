@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('qustions', function (Blueprint $table) {
             $table->id();
-            $table->integer('quiz_id')->unsigned();
+            $table->unsignedBigInteger('quiz_id');
             $table->string('quistion');
             $table->timestamps();
 

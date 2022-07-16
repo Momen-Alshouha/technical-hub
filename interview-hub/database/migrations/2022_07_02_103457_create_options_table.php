@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('options', function (Blueprint $table) {
             $table->id();
-            $table->integer('qustion_id')->unsigned();
+            $table->unsignedBigInteger('qustion_id');
             $table->string('option');
             $table->boolean('is_right');
             $table->timestamps();

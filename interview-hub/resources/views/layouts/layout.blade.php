@@ -70,11 +70,11 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="/" class="nav-item nav-link {{Request::is('/') ? 'active' : ''}}">Home</a>
-                {{-- <a href="qustions" class="nav-item nav-link {{Request::is('qustions') ? 'active' : ''}}">Qustions</a>
-                <a href="quizzes" class="nav-item nav-link {{Request::is('quizzes') ? 'active' : ''}}">Quizzes</a> --}}
-                {{-- <a href="courses.html" class="nav-item nav-link {{Request::is('/') ? 'active' : ''}}" >Courses</a> --}}
                 <a href="about" class="nav-item nav-link {{Request::is('about') ? 'active' : ''}}">About</a>
                 <a href="contact" class="nav-item nav-link {{Request::is('contact') ? 'active' : ''}}">Contact</a>
+                <a href="{{(Auth::check()?'qustions':'register')}}" class="nav-item nav-link {{Request::is('qustions') ? 'active' : ''}}">Qustions</a>
+                <a href="{{(Auth::check()?'quizzes':'register')}}" class="nav-item nav-link {{Request::is('quizzes') ? 'active' : ''}}">Quizzes</a>
+                <a href="{{(Auth::check()?'ask':'register')}}" class="nav-item nav-link {{Request::is('ask') ? 'active' : ''}}">Ask</a>
                 <ul class="navbar-nav ms-auto">
                     <!-- Authentication Links -->
                     @guest
@@ -90,10 +90,8 @@
                             </li>
                         @endif
                     @else
-                    <a href="qustions" class="nav-item nav-link {{Request::is('qustions') ? 'active' : ''}}">Qustions</a>
-                    <a href="quizzes" class="nav-item nav-link {{Request::is('quizzes') ? 'active' : ''}}">Quizzes</a>
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
                             </a>
     
@@ -103,10 +101,12 @@
                                                  document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
+                                
     
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
                                 </form>
+                                
                             </div>
                         </li>
                     @endguest

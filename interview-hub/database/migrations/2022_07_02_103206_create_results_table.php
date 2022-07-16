@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('results', function (Blueprint $table) {
             $table->id();
-            $table->integer('quiz_id')->unsigned();
-            $table->integer('user_id')->unsigned();
+            $table->unsignedBigInteger('quiz_id');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
-            $table->foreign("quiz_id")->references('id')->on("quizzes")->onDelete("cascade")->onUpdate('cascade');
-            $table->foreign("user_id")->references('id')->on("users")->onDelete("cascade")->onUpdate('cascade');
+            $table->foreign("quiz_id")->references('id')->on("quizzes")->onDelete("cascade");
+            $table->foreign("user_id")->references('id')->on("users")->onDelete("cascade");
         });
 
     }

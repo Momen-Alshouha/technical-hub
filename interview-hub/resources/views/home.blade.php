@@ -70,44 +70,106 @@
     <!-- About End -->
 
 
-     <!-- Service Start -->
-     <div class="container-xxl py-5">
-        <div class="container">
-            <div class="text-center">
-                <h6 class="section-title bg-white text-center text-primary px-3">Services</h6>
-                <h1 class="mb-5">Check Our Services!</h1>
-            </div>
-            <div class="row g-4">
-                <div src="www.google.com" class="col-lg-6 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="service-item text-center pt-3">
-                        <div class="p-4">
-                            <i class="fa fa-3x fa-graduation-cap text-primary mb-4"></i>
-                            <h5 class="mb-3">Online Exams</h5>
-                            <p>Test Your knowlege and take our exams.</p>
-                            @if (Auth::check())
-                                <button class="btn btn-primary"> Visit Exams</button>
-                            @endif
+     <!-- Service Authenticated Start -->
+     @if (Auth::check())
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="text-center">
+                    <h6 class="section-title bg-white text-center text-primary px-3">Services</h6>
+                    <h1 class="mb-5">Check Our Services!</h1>
+                </div>
+                <div class="row g-4">
+                    <div src="www.google.com" class="col-lg-4 col-sm-4 wow fadeInUp" data-wow-delay="0.1s">
+                       <a title="Visit Exams Section" href="">
+                            <div class="service-item text-center pt-3">
+                                <div class="p-4">
+                                    <i class="fa fa-3x fa-graduation-cap text-primary mb-4"></i>
+                                    <h5 class="mb-3">Online Exams</h5>
+                                    <p>Test Your knowlege and take our exams.</p>
+                                
+                                </div>
+                            </div>
+                       </a>
+                    </div>
+                    <div class="col-lg-4 col-sm-4 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="service-item text-center pt-3">
+                            <a title="Visit Interview Qustions Section" href=""><div class="p-4">
+                                <i class="fa fa-3x fa-globe text-primary mb-4"></i>
+                                <h5 class="mb-3">Interview quistions</h5>
+                                <p>The Most Asked Interview Qustions.</p>
+                                
+                            </div>
+                        </a>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-6 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="service-item text-center pt-3">
-                        <div class="p-4">
-                            <i class="fa fa-3x fa-globe text-primary mb-4"></i>
-                            <h5 class="mb-3">Interview quistions</h5>
-                            <p>Take A look To The Most Asked Interview Qustions.</p>
-                            @if(Auth::check()){
-                             <button>Visit Qustions</button>   
-                            } 
-                            @endif
+                    
+                    
+                    <div class="col-lg-4 col-sm-4 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="service-item text-center pt-3">
+                                <a title="Visit Ask Section" href="">
+                                <div class="p-4">
+                                    <i class="fa fa-3x fa-question-circle text-primary mb-4"></i>
+                                    <h5 class="mb-3">Ask a qustion</h5>
+                                    <p>Ask your qustion and get the best answer.</p>
+                                   
+                                </div>
+                            </a>
+                            </div>
                         </div>
-                    </div>
+                
                 </div>
-               
             </div>
         </div>
-    </div>
-    <!-- Service end -->
+         
+     @else
+            <div class="container-xxl py-5">
+                <div class="container">
+                    <div class="text-center">
+                        <h6 class="section-title bg-white text-center text-primary px-3">Services</h6>
+                        <h1 class="mb-5">Check Our Services!</h1>
+                    </div>
+                    <div class="row g-4">
+                        <div src="www.google.com" class="col-lg-4 col-sm-4 wow fadeInUp" data-wow-delay="0.1s">
+                            <div class="service-item text-center pt-3">
+                                <div class="p-4">
+                                    <i class="fa fa-3x fa-graduation-cap text-primary mb-4"></i>
+                                    <h5 class="mb-3">Online Exams</h5>
+                                    <p>Test Your knowlege and take our exams.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-4 wow fadeInUp" data-wow-delay="0.3s">
+                            <div class="service-item text-center pt-3">
+                                <div class="p-4">
+                                    <i class="fa fa-3x fa-globe text-primary mb-4"></i>
+                                    <h5 class="mb-3">Interview quistions</h5>
+                                    <p>The Most Asked Interview Qustions.</p>
+                                </div>
+                            
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-4 wow fadeInUp" data-wow-delay="0.3s">
+                            <div class="service-item text-center pt-3">
+                                <div class="p-4">
+                                    <i class="fa fa-3x fa-question-circle text-primary mb-4"></i>
+                                    <h5 class="mb-3">Ask a qustion</h5>
+                                    <p>Ask your qustion and get the best answer.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         
+     @endif
+         
+     
+     
+
+ 
+<!-- Service Authenticated end -->
+
+
 
     
     <!-- Categories Start -->

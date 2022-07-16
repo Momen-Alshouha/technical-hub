@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('result__details', function (Blueprint $table) {
             $table->id();
-            $table->integer('result_id');
-            $table->integer('qustion_id');
-            $table->integer('option_id');
+            $table->unsignedBigInteger('result_id');
+            $table->unsignedBigInteger('qustion_id');
+            $table->unsignedBigInteger('option_id');
             $table->boolean('is_right');
             $table->timestamps();
             $table->foreign('result_id')->references('id')->on('results')->onUpdate('cascade')->onDelete('cascade');

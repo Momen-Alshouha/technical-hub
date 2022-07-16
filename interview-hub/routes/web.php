@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,9 +38,16 @@ Route::get('admin/qustions', function () {
     return view('admin.qustions');
 })->name('admin/add_interview_qustions');
 
+Route::get('admin/qustions', function () {
+    return view('admin.qustions');
+})->name('admin/add_interview_qustions_category');
+
 
 Route::get('/userprofile', function () {
     return view('user_profile');
+});
+Route::get('/userprofile', function () {
+    return view('user_profile')->name('userprofile');
 });
 
 Route::get('/about', function () {
@@ -59,12 +67,15 @@ Route::get('/qustions', function () {
     return view('qustions');
 });
 
+Route::get('/ask', function () {
+    return view('ask');
+});
+
 Route::get('/admin/login', function () {
     return view('admin.login');
 });
 
-
-
+Route::resource('user', UserController::class);
 
 Auth::routes();
 
