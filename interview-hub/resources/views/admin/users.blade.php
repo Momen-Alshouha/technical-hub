@@ -2,14 +2,9 @@
 
 
 @section('content')
-<h6 class="mb-4"></h6>
+    <h1 style="margin:30px">Users</h1>
+    <hr>
     <div class="container">
-            @if ($message = Session::get('success'))
-                <div class="alert alert-danger" role="alert">
-                    {{$message}}
-                </div>
-            @endif
-            
         <table class="table">
             <thead>
                 <tr>

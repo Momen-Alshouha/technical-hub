@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Routing\Redirector;
 use App\Models\Interview_Qus_Cat;
 use Illuminate\Http\Request;
 
@@ -14,7 +14,8 @@ class InterviewQusCatController extends Controller
      */
     public function index()
     {
-        //
+        $categories=Interview_Qus_Cat::all();
+        return view('admin.show_categories',compact('categories'));
     }
 
     /**
@@ -24,7 +25,8 @@ class InterviewQusCatController extends Controller
      */
     public function create()
     {
-        //
+        
+        return view('admin.add_interview_qus_cat');
     }
 
     /**
@@ -35,7 +37,12 @@ class InterviewQusCatController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        // Add Validation 
+        $categories=Interview_Qus_Cat::all();
+        $category = Interview_Qus_Cat::create($request->all());
+        $message = 'Category Added Successfully!';
+        return view('admin.show_categories',compact(['categories','message']));
     }
 
     /**
@@ -72,14 +79,13 @@ class InterviewQusCatController extends Controller
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Interview_Qus_Cat  $interview_Qus_Cat
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Interview_Qus_Cat $interview_Qus_Cat)
+    public function destroy($id)
     {
-        //
+
+        $category = Interview_Qus_Cat::find($id);
+        $category->delete();
+        return redirect()->route('interview_qustions_category.index')->with('success', 'category deleted succesfully');
     }
+    
+   
 }

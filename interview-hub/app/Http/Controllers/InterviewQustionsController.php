@@ -3,83 +3,52 @@
 namespace App\Http\Controllers;
 
 use App\Models\Interview_Qustions;
+use App\Models\Interview_Qus_Cat;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class InterviewQustionsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+        // $qustions = Interview_Qustions::all();
+        
+        $qustions = DB::table('interview__qustions')
+        ->join('interview__qus__cats','interview__qustions.cat_id','=','interview__qus__cats.id')
+        ->select('interview__qus__cats.*','interview__qustions.*')->get();
+        
+        // dd($qustions);
+        
+        return view('admin.show_interview_qustions',compact('qustions'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
     public function create()
     {
-        //
+        $categories = Interview_Qus_Cat::all();
+        return view('admin.add_interview_qustions', compact('categories'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+ 
     public function store(Request $request)
     {
-        //
+        $qustion = Interview_Qustions::create($request->all());
+
+        $qustions = DB::table('interview__qustions')
+        ->join('interview__qus__cats','interview__qustions.cat_id','=','interview__qus__cats.id')
+        ->select('interview__qus__cats.*','interview__qustions.*')->get();
+
+        $message = 'Interview Qustion Added Successfully!';
+
+        return view('admin.show_interview_qustions',compact(['qustions','message']));
+
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Interview_Qustions  $interview_Qustions
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Interview_Qustions $interview_Qustions)
+    public function destroy($id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Interview_Qustions  $interview_Qustions
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Interview_Qustions $interview_Qustions)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Interview_Qustions  $interview_Qustions
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Interview_Qustions $interview_Qustions)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Interview_Qustions  $interview_Qustions
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Interview_Qustions $interview_Qustions)
-    {
-        //
+        $qustions = Interview_Qustions::find($id);
+        $qustions->delete();
+        return redirect()->route('interview_qustions.index')->with('success', 'user deleted succesfully');
     }
 }

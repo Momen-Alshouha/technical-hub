@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\InterviewQusCatController;
+use App\Http\Controllers\interviewQustionsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +28,8 @@ Route::get('admin/users', function () {
     return view('admin.users');
 })->name('admin/users');
 
+// start quiz
+
 Route::get('admin/addquiz', function () {
     return view('admin.add_quiz');
 })->name('admin/add_quiz');
@@ -34,13 +38,11 @@ Route::get('admin/addqustions', function () {
     return view('admin.add_qustions');
 })->name('admin/add_qustions');
 
-Route::get('admin/qustions', function () {
-    return view('admin.qustions');
-})->name('admin/add_interview_qustions');
+// end quiz
 
-Route::get('admin/qustions', function () {
-    return view('admin.qustions');
-})->name('admin/add_interview_qustions_category');
+
+
+
 
 
 Route::get('/userprofile', function () {
@@ -76,6 +78,10 @@ Route::get('/admin/login', function () {
 });
 
 Route::resource('user', UserController::class);
+
+Route::resource('interview_qustions_category', interviewQusCatController::class);
+
+Route::resource('interview_qustions', interviewQustionsController::class);
 
 Auth::routes();
 
