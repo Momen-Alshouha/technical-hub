@@ -39,9 +39,8 @@ class InterviewQustionsController extends Controller
         ->join('interview__qus__cats','interview__qustions.cat_id','=','interview__qus__cats.id')
         ->select('interview__qus__cats.*','interview__qustions.*')->get();
 
-        $message = 'Interview Qustion Added Successfully!';
 
-        return view('admin.show_interview_qustions',compact(['qustions','message']));
+        return redirect()->route('interview_qustions.index')->with('success', 'Qustion Added succesfully');
 
     }
 
@@ -49,6 +48,6 @@ class InterviewQustionsController extends Controller
     {
         $qustions = Interview_Qustions::find($id);
         $qustions->delete();
-        return redirect()->route('interview_qustions.index')->with('success', 'user deleted succesfully');
+        return redirect()->route('interview_qustions.index')->with('success', 'Qustion Deleted Succesfully');
     }
 }

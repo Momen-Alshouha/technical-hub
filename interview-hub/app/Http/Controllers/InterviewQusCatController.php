@@ -39,10 +39,25 @@ class InterviewQusCatController extends Controller
     {
 
         // Add Validation 
+        
+        $data= new Interview_Qus_Cat();
+
+        if($request->file('image')){
+            $file= $request->file('image');
+            $filename= date('YmdHi').$file->getClientOriginalName();
+            $file-> move(public_path('public/Image'), $filename);
+            $data['image']= $filename;
+        }
+
+        $data['title']= $request->input('title');
+        $data['description']= $request->input('description');;
+
+        $data->save();
+
         $categories=Interview_Qus_Cat::all();
-        $category = Interview_Qus_Cat::create($request->all());
+
         $message = 'Category Added Successfully!';
-        return view('admin.show_categories',compact(['categories','message']));
+        return redirect()->route('interview_qustions_category.index')->with('success', 'Category Added Succesfully');
     }
 
     /**

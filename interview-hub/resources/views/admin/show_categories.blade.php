@@ -4,7 +4,7 @@
     <h1 style="margin:30px">Interview Qustions Categories</h1>
     <hr>
     <div class="container">
-            @if (!empty($message))
+            @if ($message = Session::get('success'))
                 <div class="alert alert-success" role="alert">
                     {{$message}}
                 </div>
@@ -13,12 +13,11 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Image</th>
+                    <th scope="col">Category ID</th>
+                    <th scope="col">Category Title</th>
+                    <th scope="col">Category Description</th>
+                    <th scope="col">Category Image</th>
                     <th scope="col">Action</th>
-                    {{-- <th scope="col">Image</th> --}}
                 </tr>
             </thead>
             <tbody>
@@ -27,7 +26,7 @@
                 <th scope="row">{{$category->id}}</th>
                 <td>{{$category->title}}</td>
                 <td>{{$category->description}}</td>
-                <td>{{$category->image}}</td>
+                <td><img src="{{asset('public/Image/'.$category->image)}}" style="height: 150px; width: 150px;"></td>
                 <td><form action="{{route('interview_qustions_category.destroy',$category->id)}}"  method="POST">
                 @csrf
                 @method('DELETE')

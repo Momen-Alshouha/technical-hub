@@ -4,11 +4,17 @@
 @section('content')
     <h1 style="margin:30px">Users</h1>
     <hr>
+    
     <div class="container">
+        @if ($message = Session::get('success'))
+        <div class="alert alert-danger">
+            {{$message}}
+        </div>
+    @endif
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">ID</th>
+                    <th scope="col">User ID</th>
                     <th scope="col">Name</th>
                     <th scope="col">Email</th>
                     <th scope="col">Action</th>

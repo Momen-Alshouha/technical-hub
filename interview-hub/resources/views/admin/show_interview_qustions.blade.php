@@ -4,18 +4,18 @@
 <h1 style="margin:30px">Interview Qustions</h1>
 <hr>
     <div class="container">
-        @if (!empty($message))
-            <div class="alert alert-success" role="alert">
-                {{$message}}
-            </div>
-        @endif
+        @if ($message = Session::get('success'))
+                <div class="alert alert-success" role="alert">
+                    {{$message}}
+                </div>
+            @endif
         
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Category</th>
-                <th scope="col">title</th>
+                <th scope="col">Qustion ID</th>
+                <th scope="col">Category ID</th>
+                <th scope="col">Category Title</th>
                 <th scope="col">Qustion</th>
                 <th scope="col">Answer</th>
                 <th scope="col">Action</th>

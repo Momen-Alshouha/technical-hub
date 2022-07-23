@@ -4,7 +4,7 @@
     <h1 style="margin:30px">Add Interview Qustion Category</h1>
     <hr>
     <div class="container" style="width: 50%">
-        <form action="{{route('interview_qustions_category.store')}}" method="POST">
+        <form action="{{route('interview_qustions_category.store')}}" method="POST" enctype="multipart/form-data"> 
             @csrf
             <div class="form-group" >
                 <label for="title">Category Title</label>
