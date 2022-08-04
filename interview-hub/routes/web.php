@@ -65,9 +65,6 @@ Route::get('/quizzes', function () {
 });
 
 
-Route::get('/qustions', function () {
-    return view('qustions');
-});
 
 Route::get('/ask', function () {
     return view('ask');
@@ -86,3 +83,9 @@ Route::resource('interview_qustions', interviewQustionsController::class);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('qustion_categories',[interviewQusCatController::class,'showCategories']);
+
+Route::get('qustion_categories/{id}',[interviewQusCatController::class,'getQustionsByCategory']);
+
+
