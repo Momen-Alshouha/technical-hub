@@ -1,10 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\InterviewQusCatController;
 use App\Http\Controllers\interviewQustionsController;
-
+use App\Http\Controllers\UserQustionController;
+use App\Http\Controllers\UserAnswerController;
+use App\Http\Controllers\Roadmap;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -65,14 +68,19 @@ Route::get('/quizzes', function () {
 });
 
 
+// Start Roadmaps
 
-Route::get('/ask', function () {
-    return view('ask');
-});
+Route::get('roadmaps',[Roadmap::class,'roadmaps'])->name('roadmaps');
 
-Route::get('/admin/login', function () {
-    return view('admin.login');
-});
+Route::get('frontend',[Roadmap::class,'frontend'])->name('frontend');
+Route::get('backend',[Roadmap::class,'backend'])->name('backend');
+Route::get('fullstack',[Roadmap::class,'fullstack'])->name('fullstack');
+Route::get('devops',[Roadmap::class,'devops'])->name('devops');
+
+// End Roadmaps
+
+
+Route::resource('ask', UserQustionController::class);
 
 Route::resource('user', UserController::class);
 

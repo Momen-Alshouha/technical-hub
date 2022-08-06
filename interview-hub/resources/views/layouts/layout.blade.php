@@ -74,7 +74,8 @@
                 <a href="contact" class="nav-item nav-link {{Request::is('contact') ? 'active' : ''}}">Contact</a>
                 <a href="{{(Auth::check()?'qustion_categories':'register')}}" class="nav-item nav-link {{Request::is('qustions') ? 'active' : ''}}">Qustions</a>
                 <a href="{{(Auth::check()?'quizzes':'register')}}" class="nav-item nav-link {{Request::is('quizzes') ? 'active' : ''}}">Quizzes</a>
-                <a href="{{(Auth::check()?'ask':'register')}}" class="nav-item nav-link {{Request::is('ask') ? 'active' : ''}}">Ask</a>
+                <a href="{{(Auth::check()?route('ask.index'):'register')}}" class="nav-item nav-link {{Request::is('ask') ? 'active' : ''}}">Ask</a>
+                <a href="{{(Auth::check()?route('roadmaps'):'register')}}" class="nav-item nav-link {{Request::is('roadmaps') ? 'active' : ''}}">Roadmaps</a>
                 <ul class="navbar-nav ms-auto">
                     <!-- Authentication Links -->
                     @guest
