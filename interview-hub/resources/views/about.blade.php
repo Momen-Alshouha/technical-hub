@@ -27,8 +27,8 @@
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
                     <h6 class="section-title bg-white text-start text-primary pe-3">About Us</h6>
-                    <h1 class="mb-4">Welcome to interviewHUB</h1>
-                    <p class="mb-4">InterviewHUB is a platform to test your knowlege for technology jobs and review the most asked interview quistions.</p>
+                    <h1 class="mb-4">Welcome to TechnicalHUB</h1>
+                    <p class="mb-4">TechnicalHUB is a platform to test your knowlege for technology jobs and review the most asked interview quistions.</p>
                     <p class="mb-4">We also get you connected with the right companies worldwide based on your skills and preferences, and do everything needed to make sure you get your dream job. </p>
                     <div class="row gy-2 gx-4 mb-4">
                         <div class="col-sm-6">

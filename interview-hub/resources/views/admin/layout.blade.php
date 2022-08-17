@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>interviewHUB - Dashboard</title>
+    <title>TechnicalHUB - Dashboard</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -52,12 +52,27 @@
                     <a href="{{route('user.index')}}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Users</a>
                     
                     <div class="nav-item dropdown">
-                        <a href="" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Qustions</a>
+                        <a href="" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Qustions Cats</a>
                         <div class="dropdown-menu bg-transparent border-0">
                             <a href="{{route('interview_qustions_category.index')}}" class="dropdown-item">Show Categories</a>
                             <a href="{{route('interview_qustions_category.create')}}" class="dropdown-item">Add Category</a>
+                        </div>
+                    </div>
+
+                    <div class="nav-item dropdown">
+                        <a href="" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Qustions</a>
+                        <div class="dropdown-menu bg-transparent border-0">
+                           
                             <a href="{{route('interview_qustions.index')}}" class="dropdown-item">Show qustions</a>
                             <a href="{{route('interview_qustions.create')}}" class="dropdown-item">Add Interview Qustions</a>
+                        </div>
+                    </div>
+
+                    <div class="nav-item dropdown">
+                        <a href="" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Courses</a>
+                        <div class="dropdown-menu bg-transparent border-0">
+                            <a href="{{route('courses.index')}}" class="dropdown-item">Show Courses</a>
+                            <a href="{{route('courses.create')}}" class="dropdown-item">Add Course</a>
                         </div>
                     </div>
 
@@ -114,28 +129,6 @@
 @yield('content')
             
 
-            <!-- Footer Start -->
-            <div class="container-fluid pt-4 px-4">
-                <div class="bg-light rounded-top p-4">
-                    <div class="row">
-                        <div class="col-12 col-sm-6 text-center text-sm-start">
-                            &copy; <a href="#">Your Site Name</a>, All Right Reserved. 
-                        </div>
-                        <div class="col-12 col-sm-6 text-center text-sm-end">
-                            <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                            Designed By <a href="https://htmlcodex.com">HTML Codex</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Footer End -->
-        </div>
-        <!-- Content End -->
-
-
-        <!-- Back to Top -->
-        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
-    </div>
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

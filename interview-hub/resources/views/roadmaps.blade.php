@@ -6,7 +6,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-10 text-center">
                 <h1 class="display-3 text-white animated slideInDown">Technical Roadmaps</h1>
-                <h4>Here is the list of available roadmaps.</h4>
+                <h4 style="color: aliceblue">Here is the list of available roadmaps.</h4>
             </div>
         </div>
     </div>
@@ -23,7 +23,7 @@
             <div class="col-lg-5 wow fadeInUp" data-wow-delay="0.3s">
                 <h6 class="section-title bg-white text-start text-primary pe-3">Technical Roadmaps</h6>
                 <h1 class="mb-4">Welcome to Technical roadmaps</h1>
-                <p class="mb-4">InterviewHUB is a platform to test your knowlege for technology jobs and review the most asked interview quistions.</p>
+                <p class="mb-4">TechnicalHUB is a platform to test your knowlege for technology jobs and review the most asked interview quistions.</p>
                 <p class="mb-4">We also get you connected with the right companies worldwide based on your skills and preferences, and do everything needed to make sure you get your dream job. </p>
                 <div class="row gy-2 gx-4 mb-4">
                     <div class="col-sm-6">

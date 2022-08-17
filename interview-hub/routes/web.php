@@ -7,6 +7,7 @@ use App\Http\Controllers\InterviewQusCatController;
 use App\Http\Controllers\interviewQustionsController;
 use App\Http\Controllers\UserQustionController;
 use App\Http\Controllers\UserAnswerController;
+use App\Http\Controllers\CourseController;
 use App\Http\Controllers\Roadmap;
 /*
 |--------------------------------------------------------------------------
@@ -87,6 +88,8 @@ Route::resource('user', UserController::class);
 Route::resource('interview_qustions_category', interviewQusCatController::class);
 
 Route::resource('interview_qustions', interviewQustionsController::class);
+
+Route::resource('courses', CourseController::class);
 
 Auth::routes();
 

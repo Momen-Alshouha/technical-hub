@@ -62,7 +62,7 @@
     <!-- Navbar Start -->
     <nav id="nav" class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
         <a href="/" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-            <h2 class="m-0 text-primary">interviewHUB</h2>
+            <h2 class="m-0 text-primary">TechHUB</h2>
         </a>
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
@@ -74,7 +74,7 @@
                 <a href="contact" class="nav-item nav-link {{Request::is('contact') ? 'active' : ''}}">Contact</a>
                 <a href="{{(Auth::check()?'qustion_categories':'register')}}" class="nav-item nav-link {{Request::is('qustions') ? 'active' : ''}}">Qustions</a>
                 <a href="{{(Auth::check()?'quizzes':'register')}}" class="nav-item nav-link {{Request::is('quizzes') ? 'active' : ''}}">Quizzes</a>
-                <a href="{{(Auth::check()?route('ask.index'):'register')}}" class="nav-item nav-link {{Request::is('ask') ? 'active' : ''}}">Ask</a>
+                {{-- <a href="{{(Auth::check()?route('ask.index'):'register')}}" class="nav-item nav-link {{Request::is('ask') ? 'active' : ''}}">Ask</a> --}}
                 <a href="{{(Auth::check()?route('roadmaps'):'register')}}" class="nav-item nav-link {{Request::is('roadmaps') ? 'active' : ''}}">Roadmaps</a>
                 <ul class="navbar-nav ms-auto">
                     <!-- Authentication Links -->
@@ -91,8 +91,8 @@
                             </li>
                         @endif
                     @else
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <li >
+                            <a  class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
                             </a>
     
