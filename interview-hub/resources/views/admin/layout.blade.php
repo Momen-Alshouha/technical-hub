@@ -50,6 +50,7 @@
                 <div class="navbar-nav w-100">
                     <a href="{{route('admin')}}" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                     <a href="{{route('user.index')}}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Users</a>
+                    <a href="{{route('reviews.index')}}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Reviews</a>
                     
                     <div class="nav-item dropdown">
                         <a href="" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Qustions Cats</a>

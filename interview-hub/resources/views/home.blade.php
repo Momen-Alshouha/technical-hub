@@ -12,7 +12,7 @@
                         <div class="row justify-content-start">
                             <div class="col-sm-10 col-lg-8">
                                 <h1 class="display-3 text-white animated slideInDown">The Best Online Technical Platform</h1>
-                                <p class="fs-5 text-white mb-4 pb-2">Every thing you need to crack your Technical </p>
+                                <p class="fs-5 text-white mb-4 pb-2">Every thing you need to crack your Technical Interview</p>
                                @if (!Auth::check())
                                <a href="{{route('register')}}" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Join Now</a>
                                @endif
@@ -29,8 +29,11 @@
                         <div class="row justify-content-start">
                             <div class="col-sm-10 col-lg-8">
                                 <h1 class="display-3 text-white animated slideInDown">TechnicalHUB is your best choice</h1>
-                                <p class="fs-5 text-white mb-4 pb-2">Want to increase your chances in getting the job?</p>
+                                <p class="fs-5 text-white mb-4 pb-2">Increase your chances in getting the job</p>
+                                @if ((!Auth::check()))
                                 <a href="{{route('register')}}" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Join Now</a>
+                                    
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -170,7 +173,15 @@
     
      @php
          use App\Models\Course;
+         use App\Models\Review;
+
          $courses = Course::all();
+
+         $reviews = DB::table('reviews')
+        ->join('users','users.id','=','reviews.user_id')
+        ->select('reviews.*','users.*')->get();
+
+
      @endphp
 
  
@@ -222,42 +233,24 @@
         <div class="container">
             <div class="text-center">
                 <h6 class="section-title bg-white text-center text-primary px-3">Testimonial</h6>
-                <h1 class="mb-5">Our Students Say!</h1>
+                <h1 class="mb-5">Our Users Say!</h1>
             </div>
             <div class="owl-carousel testimonial-carousel position-relative">
+
+                @foreach ($reviews as $review)
                 <div class="testimonial-item text-center">
-                    <img class="border rounded-circle p-2 mx-auto mb-3" src="img/testimonial-1.jpg" style="width: 80px; height: 80px;">
-                    <h5 class="mb-0">Client Name</h5>
-                    <p>Profession</p>
+                    <img class="border rounded-circle p-2 mx-auto mb-3" src="https://th.bing.com/th/id/R.0a250cd111e46987b60ccd02f6f893b2?rik=sWF18IKKbVZ9aw&pid=ImgRaw&r=0" style="width: 80px; height: 80px;">
+                    <h5 class="mb-0">{{$review->name}}</h5>
+                    <p></p>
                     <div class="testimonial-text bg-light text-center p-4">
-                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                    <p class="mb-0">{{$review->description}}</p>
                     </div>
                 </div>
-                <div class="testimonial-item text-center">
-                    <img class="border rounded-circle p-2 mx-auto mb-3" src="img/testimonial-2.jpg" style="width: 80px; height: 80px;">
-                    <h5 class="mb-0">Client Name</h5>
-                    <p>Profession</p>
-                    <div class="testimonial-text bg-light text-center p-4">
-                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
-                    </div>
-                </div>
-                <div class="testimonial-item text-center">
-                    <img class="border rounded-circle p-2 mx-auto mb-3" src="img/testimonial-3.jpg" style="width: 80px; height: 80px;">
-                    <h5 class="mb-0">Client Name</h5>
-                    <p>Profession</p>
-                    <div class="testimonial-text bg-light text-center p-4">
-                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
-                    </div>
-                </div>
-                <div class="testimonial-item text-center">
-                    <img class="border rounded-circle p-2 mx-auto mb-3" src="img/testimonial-4.jpg" style="width: 80px; height: 80px;">
-                    <h5 class="mb-0">Client Name</h5>
-                    <p>Profession</p>
-                    <div class="testimonial-text bg-light text-center p-4">
-                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
-                    </div>
-                </div>
+                @endforeach
             </div>
+            @if (Auth::check())
+            <a style="margin-left: 10%" href="{{route('reviews.create')}}" class="btn btn-primary">Add Your Review</a>
+            @endif
         </div>
     </div>
     <!-- Testimonial End -->
