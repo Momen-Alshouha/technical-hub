@@ -57,18 +57,18 @@
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
                     <h1 class="mb-4">Welcome to TechnicalHUB</h1>
-                    <p class="mb-4">TechnicalHUB is a platform to test your knowlege for technology jobs and review the most asked interview quistions.</p>
-                    <p class="mb-4">We also get you connected with the right companies worldwide based on your skills and preferences, and do everything needed to make sure you get your dream job. </p>
+                    <p class="mb-4">TechnicalHUB is a Technical platform targeting job seekers whomwant to crack thier next coding inteview.</p>
+                    <p class="mb-4">We also prvidve a clear technical roadmap for beginners, and do everything needed to make sure you get your dream job. </p>
                     <div class="row gy-2 gx-4 mb-4">
                         <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Interview Quistions</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Online Exams</p>
-                        </div>                 
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Interview Questions</p>
+                        </div>              
                         <div class="col-sm-6">
                             <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Technical Roadmaps</p>
-                        </div>                 
+                        </div> 
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Recomended Courses</p>
+                        </div>                     
                     </div>
                 </div>
             </div>
@@ -78,57 +78,7 @@
 
 
      <!-- Service Authenticated Start -->
-     @if (Auth::check())
-        <div class="container-xxl py-5">
-            <div class="container">
-                <div class="text-center">
-                    <h6 class="section-title bg-white text-center text-primary px-3">Services</h6>
-                    <h1 class="mb-5">Check Our Services!</h1>
-                </div>
-                <div class="row g-4">
-                    <div src="www.google.com" class="col-lg-4 col-sm-4 wow fadeInUp" data-wow-delay="0.1s">
-                       <a title="Visit Exams Section" href="">
-                            <div class="service-item text-center pt-3">
-                                <div class="p-4">
-                                    <i class="fa fa-3x fa-graduation-cap text-primary mb-4"></i>
-                                    <h5 class="mb-3">Online Exams</h5>
-                                    <p>Test Your knowlege and take our exams.</p>
-                                
-                                </div>
-                            </div>
-                       </a>
-                    </div>
-                    <div class="col-lg-4 col-sm-4 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="service-item text-center pt-3">
-                            <a title="Visit Interview Qustions Section" href=""><div class="p-4">
-                                <i class="fa fa-3x fa-globe text-primary mb-4"></i>
-                                <h5 class="mb-3">Interview quistions</h5>
-                                <p>The Most Asked Interview Qustions.</p>
-                                
-                            </div>
-                        </a>
-                        </div>
-                    </div>
-                    
-                    
-                    <div class="col-lg-4 col-sm-4 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="service-item text-center pt-3">
-                                <a title="Visit Ask Section" href="">
-                                <div class="p-4">
-                                    <i class="fa fa-3x fa-question-circle text-primary mb-4"></i>
-                                    <h5 class="mb-3">Ask a qustion</h5>
-                                    <p>Ask your qustion and get the best answer.</p>
-                                   
-                                </div>
-                            </a>
-                            </div>
-                        </div>
-                
-                </div>
-            </div>
-        </div>
-         
-     @else
+   
             <div class="container-xxl py-5">
                 <div class="container">
                     <div class="text-center">
@@ -140,8 +90,8 @@
                             <div class="service-item text-center pt-3">
                                 <div class="p-4">
                                     <i class="fa fa-3x fa-graduation-cap text-primary mb-4"></i>
-                                    <h5 class="mb-3">Online Exams</h5>
-                                    <p>Test Your knowlege and take our exams.</p>
+                                    <h5 class="mb-3">Recommended Courses</h5>
+                                    <p>We provide you a recomended courses to start your learning path</p>
                                 </div>
                             </div>
                         </div>
@@ -159,8 +109,8 @@
                             <div class="service-item text-center pt-3">
                                 <div class="p-4">
                                     <i class="fa fa-3x fa-question-circle text-primary mb-4"></i>
-                                    <h5 class="mb-3">Ask a qustion</h5>
-                                    <p>Ask your qustion and get the best answer.</p>
+                                    <h5 class="mb-3">Technical Roadmaps</h5>
+                                    <p>Start Learn programming with a clear technical roadmap.</p>
                                 </div>
                             </div>
                         </div>
@@ -168,7 +118,7 @@
                 </div>
             </div>
          
-     @endif
+ 
          
     
      @php
@@ -211,7 +161,7 @@
                         </div> --}}
                         @foreach ($courses as $course)
                             <div class="col-lg-4 col-md-12 wow zoomIn" data-wow-delay="0.3s">
-                                <a class="position-relative d-block overflow-hidden" href="{{$course->link}}">
+                                <a target="_blank" class="position-relative d-block overflow-hidden" href="{{$course->link}}">
                                     <img class="img-fluid" src="https://scholarship-positions.com/wp-content/uploads/2020/02/Free-Online-Course.jpg" alt="">
                                     <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
                                         <h5 class="m-0">{{$course->title}}</h5>
@@ -247,7 +197,7 @@
                     </div>
                 </div>
                 @endforeach
-            </div>
+            </div><br/><br/>
             @if (Auth::check())
             <a style="margin-left: 10%" href="{{route('reviews.create')}}" class="btn btn-primary">Add Your Review</a>
             @endif

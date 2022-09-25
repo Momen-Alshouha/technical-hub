@@ -6,7 +6,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-10 text-center">
                 <h1 class="display-3 text-white animated slideInDown">Full-Stack Roadmap</h1>
-                <h4>This is Full-Stack Web Development Roadmap.</h4>
+                <h4 style="color: white">This is Full-Stack Web Development Roadmap.</h4>
             </div>
         </div>
     </div>

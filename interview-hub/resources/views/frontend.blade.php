@@ -6,7 +6,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-10 text-center">
                 <h1 class="display-3 text-white animated slideInDown">Front-End Roadmap</h1>
-                <h4>This is front-End Web Development Roadmap.</h4>
+                <h4 style="color: white">This is front-End Web Development Roadmap.</h4>
             </div>
         </div>
     </div>

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>interviewHUB</title>
+    <title>TechnicalHUB</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -73,8 +73,7 @@
                 <a href="about" class="nav-item nav-link {{Request::is('about') ? 'active' : ''}}">About</a>
                 <a href="contact" class="nav-item nav-link {{Request::is('contact') ? 'active' : ''}}">Contact</a>
                 <a href="{{(Auth::check()?'qustion_categories':'register')}}" class="nav-item nav-link {{Request::is('qustions') ? 'active' : ''}}">Qustions</a>
-                <a href="{{(Auth::check()?'quizzes':'register')}}" class="nav-item nav-link {{Request::is('quizzes') ? 'active' : ''}}">Quizzes</a>
-                {{-- <a href="{{(Auth::check()?route('ask.index'):'register')}}" class="nav-item nav-link {{Request::is('ask') ? 'active' : ''}}">Ask</a> --}}
+        
                 <a href="{{(Auth::check()?route('roadmaps'):'register')}}" class="nav-item nav-link {{Request::is('roadmaps') ? 'active' : ''}}">Roadmaps</a>
                 <ul class="navbar-nav ms-auto">
                     <!-- Authentication Links -->

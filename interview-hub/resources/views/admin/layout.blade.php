@@ -76,24 +76,8 @@
                             <a href="{{route('courses.create')}}" class="dropdown-item">Add Course</a>
                         </div>
                     </div>
-
-                    <div class="nav-item dropdown">
-                        <a href="" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Quizzes</a>
-                        <div class="dropdown-menu bg-transparent border-0">
-                            <a href="{{route('admin/add_quiz')}}" class="dropdown-item">Add Quiz</a>
-                            <a href="{{route('admin/add_qustions')}}" class="dropdown-item">Add Qustions</a>
-                        </div>
-                    </div>
                     
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Pages</a>
-                        <div class="dropdown-menu bg-transparent border-0">
-                            <a href="signin.html" class="dropdown-item">Sign In</a>
-                            <a href="signup.html" class="dropdown-item">Sign Up</a>
-                            <a href="404.html" class="dropdown-item">404 Error</a>
-                            <a href="blank.html" class="dropdown-item">Blank Page</a>
-                        </div>
-                    </div>
+                   
                 </div>
             </nav>
         </div>

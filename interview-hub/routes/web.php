@@ -65,10 +65,6 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
-Route::get('/quizzes', function () {
-    return view('quizzes');
-});
-
 
 // Start Roadmaps
 
@@ -81,8 +77,6 @@ Route::get('devops',[Roadmap::class,'devops'])->name('devops');
 
 // End Roadmaps
 
-
-Route::resource('ask', UserQustionController::class);
 
 Route::resource('user', UserController::class);
 
