@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -38,5 +39,20 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    
+    /**
+     * Handle an authenticated user.
+     *
+     * @param  \Illuminate\Http\Request  $request The incoming request.
+     * @param  mixed  $user The authenticated user.
+     * @return \Illuminate\Http\RedirectResponse The redirection response.
+     * @override
+     */
+    protected function authenticated(Request $request, $user)
+    {
+        if ($user->isAdmin()) {
+            return redirect()->route('admin');
+        }
+
+        return redirect(RouteServiceProvider::HOME);
+    }
 }
