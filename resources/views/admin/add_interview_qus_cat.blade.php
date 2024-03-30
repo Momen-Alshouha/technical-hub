@@ -3,7 +3,7 @@
 @section('content')
     <h1 style="margin:30px">Add Interview Qustion Category</h1>
     <hr>
-    <div class="container" style="width: 50%">
+    <div class="add-form container">
         <form action="{{route('interview_qustions_category.store')}}" method="POST" enctype="multipart/form-data"> 
             @csrf
             <div class="form-group" >

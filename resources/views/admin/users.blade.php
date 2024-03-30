@@ -5,7 +5,7 @@
     <h1 style="margin:30px">Users</h1>
     <hr>
     
-    <div class="container">
+    <div class="container-fluid">
         @if ($message = Session::get('success'))
         <div class="alert alert-danger">
             {{$message}}

@@ -3,7 +3,7 @@
 @section('content')
     <h1 style="margin:30px">Add Course</h1>
     <hr>
-    <div class="container" style="width: 50%">
+    <div class="add-form  container">
         <form action="{{route('courses.store')}}" method="POST"> 
             @csrf
             <div class="form-group" >
