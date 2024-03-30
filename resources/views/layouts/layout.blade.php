@@ -73,55 +73,61 @@
                 <a href="about" class="nav-item nav-link {{Request::is('about') ? 'active' : ''}}">About</a>
                 <a href="contact" class="nav-item nav-link {{Request::is('contact') ? 'active' : ''}}">Contact</a>
                 <a href="{{(Auth::check()?'qustion_categories':'register')}}" class="nav-item nav-link {{Request::is('qustions') ? 'active' : ''}}">Qustions</a>
-        
+
                 <a href="{{(Auth::check()?route('roadmaps'):'register')}}" class="nav-item nav-link {{Request::is('roadmaps') ? 'active' : ''}}">Roadmaps</a>
                 <ul class="navbar-nav ms-auto">
                     <!-- Authentication Links -->
                     @guest
-                        @if (Route::has('login'))
-                            <li class="nav-item">
-                                <a class="nav-link {{Request::is('login') ? 'active' : ''}}" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                        @endif
-    
-                        @if (Route::has('register'))
-                            <li class="nav-item">
-                                <a href="{{ route('register') }}" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Join To Start<i class="fa fa-arrow-right ms-3"></i></a>
-                            </li>
-                        @endif
+                    @if (Route::has('login'))
+                    <li class="nav-item">
+                        <a class="nav-link {{Request::is('login') ? 'active' : ''}}" href="{{ route('login') }}">{{ __('Login') }}</a>
+                    </li>
+                    @endif
+
+                    @if (Route::has('register'))
+                    <li class="nav-item">
+                        <a href="{{ route('register') }}" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Join To Start<i class="fa fa-arrow-right ms-3"></i></a>
+                    </li>
+                    @endif
                     @else
-                        <li >
-                            <a  class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }}
+                    <li>
+                        <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }}
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+
+                            @if(auth()->user()->isAdmin())
+                            <a class="dropdown-item" href="{{ route('admin') }}">
+                                {{ __('Admin Dashboard') }}
                             </a>
-    
-                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                   onclick="event.preventDefault();
+                            @endif
+
+                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
-                                
-    
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
-                                
-                            </div>
-                        </li>
+                                {{ __('Logout') }}
+                            </a>
+
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+
+                        </div>
+                    </li>
                     @endguest
                 </ul>
-                    
+
             </div>
         </div>
     </nav>
-    
+
     <!-- Navbar End -->
 
 
-    
 
-        @yield('content')
+
+    @yield('content')
 
 
 
@@ -160,7 +166,7 @@
             <div class="copyright">
                 <div class="row">
                     <div class="col-md-12 text-center">
-                        &copy; <a class="border-bottom">interviewHUB</a> ,  All Right Reserved.
+                        &copy; <a class="border-bottom">interviewHUB</a> , All Right Reserved.
                         Designed By <a class="border-bottom" target="_blank" href="https://momen-alshouha.github.io/portfolioo/">Mo'men Alshouha</a>
                     </div>
                 </div>
