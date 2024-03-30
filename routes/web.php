@@ -10,6 +10,8 @@ use App\Http\Controllers\UserAnswerController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\Roadmap;
 use App\Http\Controllers\ReviewController;
+use App\Http\Middleware\isAdmin;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,38 +23,26 @@ use App\Http\Controllers\ReviewController;
 |
 */
 
+// Route::get('admin', function () {
+//     return view('admin.index');
+// })->name('admin');
+
 Route::get('/', function () {
     return view('home');
+})->name('home');
+
+Route::middleware(['admin'])->group(function () {
+    Route::get('admin', function () {
+        return view('admin.index');
+    })->name('admin');
+    Route::get('user', [UserController::class, 'index'])->name('users');
+    Route::delete('user/{user}', [UserController::class, 'destroy'])->name('user.destroy');
 });
-
-Route::get('admin', function () {
-    return view('admin.index');
-})->name('admin');
-
-Route::get('admin/users', function () {
-    return view('admin.users');
-})->name('admin/users');
-
-// start quiz
-
-Route::get('admin/addquiz', function () {
-    return view('admin.add_quiz');
-})->name('admin/add_quiz');
-
-Route::get('admin/addqustions', function () {
-    return view('admin.add_qustions');
-})->name('admin/add_qustions');
-
-// end quiz
-
-
-
-
-
 
 Route::get('/userprofile', function () {
     return view('user_profile');
 });
+
 Route::get('/userprofile', function () {
     return view('user_profile')->name('userprofile');
 });
@@ -78,7 +68,7 @@ Route::get('devops',[Roadmap::class,'devops'])->name('devops');
 // End Roadmaps
 
 
-Route::resource('user', UserController::class);
+//Route::resource('user', UserController::class);
 
 Route::resource('interview_qustions_category', interviewQusCatController::class);
 
@@ -95,5 +85,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('qustion_categories',[interviewQusCatController::class,'showCategories']);
 
 Route::get('qustion_categories/{id}',[interviewQusCatController::class,'getQustionsByCategory']);
+
 
 
