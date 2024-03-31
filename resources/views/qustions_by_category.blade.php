@@ -18,13 +18,13 @@
             <div class="container">
                 <div class="row g-4">
                     <div class="col-lg-12 col-md-4">
-                        <div class="row g-3">
+                        <div class="row g-3 justify-content-center">
                             @php
                                 $counter = 0;
                             @endphp
                             @foreach ($qustionsByCategory as $qustion)
-                                <div class="col-lg-5 col-md-12 wow zoomIn card m-4">
-                                    <div class="bg-white text-center bottom-0 end-0 py-2 px-3" style="margin: 1px;">
+                                <div class="col-lg-5 col-md-12 wow zoomIn card m-4 p-0">
+                                    <div class="bg-white text-center bottom-0 end-0" style="margin: 1px;">
                                         <h4 class="card-header">Q{{++$counter}}: {{$qustion->qustion}}</h4>
                                         <p class="m-3 text-primary">{{$qustion->answer}}</p>
                                     </div>  
