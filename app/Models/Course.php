@@ -8,5 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Course extends Model
 {
     use HasFactory;
+    
     protected $fillable = ['title','description','link'];
+    
+    public static function countCourses()
+    {
+        return self::count();
+    }
 }

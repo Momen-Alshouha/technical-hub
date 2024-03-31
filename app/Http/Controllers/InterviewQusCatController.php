@@ -12,13 +12,13 @@ class InterviewQusCatController extends Controller
 
     public function getQustionsByCategory($id) {
         $qustionsByCategory = Interview_Qustions::where('cat_id',$id)->get();
-
+        $categoryTitle = Interview_Qus_Cat::where('id', $id)->pluck('title')->first();
         $qustions = DB::table('interview__qustions')
         ->join('interview__qus__cats','interview__qustions.cat_id','=','interview__qus__cats.id')
         ->select('interview__qus__cats.*','interview__qustions.*')->where('cat_id',$id)->get();
         
 
-        return view('qustions_by_category',compact(['qustionsByCategory','qustions']));
+        return view('qustions_by_category',compact(['qustionsByCategory','qustions','categoryTitle']));
     }
 
     public function showCategories() {

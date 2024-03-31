@@ -51,9 +51,9 @@
                 <div class="row g-3">
                     <div class="col-lg-12 col-md-12 wow zoomIn" data-wow-delay="0.1s">
                         <a class="position-relative d-block overflow-hidden" href="{{route('frontend')}}">
-                            <img class="img-fluid" src="https://e3arabi.com/wp-content/uploads/2020/12/Front-End-Development-Bundle.jpg">
+                            <img class="img-fluid" src="https://media.licdn.com/dms/image/D5612AQE69SAPa_b1fA/article-cover_image-shrink_720_1280/0/1687014406391?e=2147483647&v=beta&t=A0-wzOpoThQB6Pl5LKh9q2CuILMt87YEZOK0J3QKTxk">
                             <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
-                                <h5 class="m-0">Front-End Web Development</h5>
+                                <h5 class="roadmap m-0">Front-End Web Development</h5>
                             </div>
                         </a>
                     </div>
@@ -61,7 +61,7 @@
                         <a class="position-relative d-block overflow-hidden" href="{{route('backend')}}">
                             <img class="img-fluid" src="https://images.unsplash.com/photo-1613068687893-5e85b4638b56?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8YmFjayUyMGVuZCUyMGRldmVsb3BtZW50fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60">
                             <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
-                                <h5 class="m-0">Back-End Web Develpoment</h5>
+                                <h5 class="roadmap m-0">Back-End Web Develpoment</h5>
                             </div>
                         </a>
                     </div>
@@ -69,7 +69,7 @@
                         <a class="position-relative d-block overflow-hidden" href="{{route('fullstack')}}">
                             <img class="img-fluid" src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y29kZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60" alt="">
                             <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
-                                <h5 class="m-0">Full-Stack Web Development</h5>
+                                <h5 class="roadmap m-0">Full-Stack Web Development</h5>
                             </div>
                         </a>
                     </div>
@@ -77,9 +77,9 @@
             </div>
             <div class="col-lg-5 col-md-6 wow zoomIn" data-wow-delay="0.7s" style="min-height: 350px;">
                 <a class="position-relative d-block h-100 overflow-hidden" href="{{route('devops')}}">
-                    <img class="img-fluid position-absolute w-100 h-100" src="https://pimages.toolbox.com/wp-content/uploads/2021/08/10123613/DevOps-Philosophy.png" alt="" style="object-fit: cover;">
+                    <img class="img-fluid position-absolute w-100 h-100" src="https://d3f1iyfxxz8i1e.cloudfront.net/courses/course_image/951f7752a26f.jpg" alt="" style="object-fit: cover;">
                     <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin:  1px;">
-                        <h5 class="m-0">DevOps</h5>
+                        <h5 class="roadmap m-0">DevOps</h5>
                     </div>
                 </a>
             </div>

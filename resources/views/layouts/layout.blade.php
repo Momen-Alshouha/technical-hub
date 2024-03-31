@@ -69,10 +69,10 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="/" class="nav-item nav-link {{Request::is('/') ? 'active' : ''}}">Home</a>
+                <a href="{{route('home')}}" class="nav-item nav-link {{Request::is('home') ? 'active' : ''}}">Home</a>
                 <a href="about" class="nav-item nav-link {{Request::is('about') ? 'active' : ''}}">About</a>
                 <a href="contact" class="nav-item nav-link {{Request::is('contact') ? 'active' : ''}}">Contact</a>
-                <a href="{{(Auth::check()?'qustion_categories':'register')}}" class="nav-item nav-link {{Request::is('qustions') ? 'active' : ''}}">Qustions</a>
+                <a href="{{(Auth::check()?route('qustion_categories'):'register')}}" class="nav-item nav-link {{Request::is('qustion_categories') ? 'active' : ''}}">Qustions</a>
 
                 <a href="{{(Auth::check()?route('roadmaps'):'register')}}" class="nav-item nav-link {{Request::is('roadmaps') ? 'active' : ''}}">Roadmaps</a>
                 <ul class="navbar-nav ms-auto">
@@ -98,8 +98,8 @@
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
                             @if(auth()->user()->isAdmin())
-                            <a class="dropdown-item" href="{{ route('admin') }}">
-                                {{ __('Admin Dashboard') }}
+                            <a class="dropdown-item" href="{{ route('dashboard') }}">
+                                {{ __('Dashboard') }}
                             </a>
                             @endif
 

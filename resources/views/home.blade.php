@@ -23,7 +23,7 @@
             </div>
 
             <div class="owl-carousel-item position-relative">
-                <img  style="height" class="img-fluid" src="{{asset('img/carousel-2.png')}}" alt="">
+                <img class="img-fluid" src="{{asset('img/carousel-2.png')}}" alt="">
                 <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(24, 29, 56, .7);">
                     <div class="container">
                         <div class="row justify-content-start">
@@ -189,7 +189,7 @@
 
                 @foreach ($reviews as $review)
                 <div class="testimonial-item text-center">
-                    <img class="border rounded-circle p-2 mx-auto mb-3" src="https://th.bing.com/th/id/R.0a250cd111e46987b60ccd02f6f893b2?rik=sWF18IKKbVZ9aw&pid=ImgRaw&r=0" style="width: 80px; height: 80px;">
+                <i class="fa fa-user-circle fa-3x text-primary mb-3"></i>
                     <h5 class="mb-0">{{$review->name}}</h5>
                     <p></p>
                     <div class="testimonial-text bg-light text-center p-4">

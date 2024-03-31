@@ -9,4 +9,8 @@ class Interview_Qustions extends Model
 {
     use HasFactory;
     protected $fillable = ['id','cat_id','qustion','answer'];
+
+    public static function countInterviewQuestions() {
+        return self::count();
+    }
 }

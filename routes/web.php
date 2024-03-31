@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\UserController;
@@ -32,10 +33,8 @@ Route::get('/', function () {
 })->name('home');
 
 Route::middleware(['admin'])->group(function () {
-    Route::get('admin', function () {
-        return view('admin.index');
-    })->name('admin');
-    Route::get('user', [UserController::class, 'index'])->name('users');
+    Route::get('dashborad', [AdminController::class, 'index'])->name('dashboard');
+    Route::get('users', [UserController::class, 'index'])->name('users');
     Route::delete('user/{user}', [UserController::class, 'destroy'])->name('user.destroy');
 });
 
@@ -82,7 +81,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('qustion_categories',[interviewQusCatController::class,'showCategories']);
+Route::get('qustion_categories',[interviewQusCatController::class,'showCategories'])->name('qustion_categories');;
 
 Route::get('qustion_categories/{id}',[interviewQusCatController::class,'getQustionsByCategory']);
 

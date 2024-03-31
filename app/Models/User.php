@@ -48,4 +48,8 @@ class User extends Authenticatable
     {
         return $this->is_admin;
     }
+
+    public static function countUsers () {
+        return self::count();
+    }
 }

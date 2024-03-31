@@ -50,7 +50,7 @@ class LoginController extends Controller
     protected function authenticated(Request $request, $user)
     {
         if ($user->isAdmin()) {
-            return redirect()->route('admin');
+            return redirect()->route('dashboard');
         }
 
         return redirect(RouteServiceProvider::HOME);

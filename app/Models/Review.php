@@ -9,4 +9,8 @@ class Review extends Model
 {
     use HasFactory;
     protected $fillable = ['user_id','description'];
+
+    public static function countReviews() {
+        return self::count();
+    }
 }
