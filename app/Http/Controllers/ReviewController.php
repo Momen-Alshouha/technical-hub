@@ -15,7 +15,7 @@ class ReviewController extends Controller
     public function index()
     {
         $reviews = Review::all();
-        return view('admin.reviews',\compact('reviews'));
+        return view('admin.reviews', \compact('reviews'));
     }
 
     /**
@@ -38,9 +38,9 @@ class ReviewController extends Controller
     {
         $review = Review::create($request->all());
 
-        return view('home');
-    
+        return view('add_review', ['success' => 'Thank you for your review!']);
     }
+
 
     /**
      * Display the specified resource.

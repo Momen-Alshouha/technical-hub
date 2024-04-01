@@ -198,9 +198,6 @@
                 </div>
                 @endforeach
             </div><br/><br/>
-            @if (Auth::check())
-            <a style="margin-left: 10%" href="{{route('reviews.create')}}" class="btn btn-primary">Add Your Review</a>
-            @endif
         </div>
     </div>
     <!-- Testimonial End -->

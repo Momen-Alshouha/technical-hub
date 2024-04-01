@@ -103,6 +103,13 @@
                             </a>
                             @endif
 
+                            @if (Auth::check() && !auth()->user()->isAdmin())
+                            <a class="dropdown-item" href="{{route('reviews.create')}}" class="btn btn-primary">
+
+                                {{ __('Review Us') }}
+                            </a>
+                            @endif
+
                             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
@@ -147,14 +154,14 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <h4 class="text-white mb-3">Contact</h4>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Jordan, Irbid</p>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Jordan, Amman</p>
                     <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>00962778091929</p>
                     <p class="mb-2"><i class="fa fa-envelope me-3"></i><a href="mailto:momenalshouha@outlook.com">momenalshouha@outlook.com</a></p>
 
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <h4 class="text-white mb-3">Newsletter</h4>
-                    <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
+                    <p>Subscribe To Our Newsletter</p>
                     <div class="position-relative mx-auto" style="max-width: 400px;">
                         <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
                         <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
@@ -166,8 +173,7 @@
             <div class="copyright">
                 <div class="row">
                     <div class="col-md-12 text-center">
-                        &copy; <a class="border-bottom">interviewHUB</a> , All Right Reserved.
-                        Designed By <a class="border-bottom" target="_blank" href="https://momen-alshouha.github.io/portfolioo/">Mo'men Alshouha</a>
+                        <a class="border-bottom">Technical-HUB</a> &copy;  All Right Reserved. <?php echo date("Y")?><a class="border-bottom" target="_blank" href="https://github.com/Momen-Alshouha"> Mo'men Alshouha</a>
                     </div>
                 </div>
             </div>
