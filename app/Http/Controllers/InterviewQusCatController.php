@@ -6,6 +6,7 @@ use App\Models\Interview_Qus_Cat;
 use App\Models\Interview_Qustions;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class InterviewQusCatController extends Controller
 {
@@ -94,9 +95,11 @@ class InterviewQusCatController extends Controller
      * @param  \App\Models\Interview_Qus_Cat  $interview_Qus_Cat
      * @return \Illuminate\Http\Response
      */
-    public function edit(Interview_Qus_Cat $interview_Qus_Cat)
+    public function edit($id)
     {
-        //
+      
+        $category = Interview_Qus_Cat::findOrFail($id);
+        return view('admin.edit_interview_qus_cat', compact('category'));
     }
 
     /**
@@ -106,11 +109,29 @@ class InterviewQusCatController extends Controller
      * @param  \App\Models\Interview_Qus_Cat  $interview_Qus_Cat
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Interview_Qus_Cat $interview_Qus_Cat)
+    public function update(Request $request, $id)
     {
-        //
+        $category = Interview_Qus_Cat::findOrFail($id);
+    
+        if ($request->hasFile('image')) {
+            if ($category->image) {
+                Storage::delete('public/Image/' . $category->image);
+            }
+    
+            $file= $request->file('image');
+            $filename= date('YmdHi').$file->getClientOriginalName();
+            $file-> move(public_path('public/Image'), $filename);
+            $data['image']= $filename;
+        }
+    
+        $category->title = $request->input('title');
+        $category->description = $request->input('description');
+    
+        $category->save();
+    
+        return redirect()->route('interview_qustions_category.index')->with('success', 'Category Updated Successfully');
     }
-
+    
     public function destroy($id)
     {
 

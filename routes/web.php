@@ -40,6 +40,8 @@ Route::middleware(['admin'])->group(function () {
     Route::resource('interview_qustions_category', interviewQusCatController::class);
     Route::resource('interview_qustions', interviewQustionsController::class);
     Route::resource('courses', CourseController::class);
+    Route::get('interview_qustions_category/{interview_qustions_category}/edit',[InterviewQusCatController::class, 'edit'])->name('interview_qustions_category.edit');
+    Route::put('interview_qustions_category/{interview_qustions_category}', [InterviewQusCatController::class, 'update'])->name('interview_qustions_category.update');
 });
 
 Route::get('/userprofile', function () {
