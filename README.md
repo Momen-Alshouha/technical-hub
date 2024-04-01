@@ -14,6 +14,17 @@ Technical Hub is a Laravel project designed to provide a centralized platform fo
 
 - **Admin Dashboard:** An admin dashboard is available to manage content.
 
+## Screenshots
+
+![Screenshot 2](app/screenshots/landing.png)
+
+![Screenshot 2](app/screenshots/dashboard.png)
+
+![Screenshot 1](app/screenshots/categories.png)
+
+![Screenshot 2](app/screenshots/roadmaps.png)
+
+
 ## Installation
 
 Before proceeding with the installation, ensure you have Apache installed and configured on your system. Additionally, make sure you have created a MySQL database named `technical_hub`.
