@@ -163,7 +163,7 @@
                             <div class="col-lg-4 col-md-12 wow zoomIn" data-wow-delay="0.3s">
                                 <a target="_blank" class="position-relative d-block overflow-hidden" href="{{$course->link}}">
                                     <img class="img-fluid" src="https://scholarship-positions.com/wp-content/uploads/2020/02/Free-Online-Course.jpg" alt="">
-                                    <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
+                                    <div class="card bg-white text-center position-absolute bottom-0 end-0 py-2 px-3">
                                         <h5 class="m-0">{{$course->title}}</h5>
                                         <small class="text-primary">{{$course->description}}</small>
                                     </div>
