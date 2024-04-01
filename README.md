@@ -48,7 +48,13 @@ Before proceeding with the installation, ensure you have Apache installed and co
     php artisan migrate
     ```
 
-6. **Serve the application:**
+6. **Run the database seeder:**
+
+    ```
+    php artisan db:seed
+    ```
+    
+7. **Serve the application:**
 
     ```
     php artisan serve
@@ -60,8 +66,4 @@ Once the server is running, access the application through your web browser.
 
 - Ensure Apache is installed and configured properly.
 - Create a MySQL database named `technical_hub` before running migrations.
-
-
-
-
 
