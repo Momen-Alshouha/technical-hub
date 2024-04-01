@@ -36,6 +36,10 @@ Route::middleware(['admin'])->group(function () {
     Route::get('dashborad', [AdminController::class, 'index'])->name('dashboard');
     Route::get('users', [UserController::class, 'index'])->name('users');
     Route::delete('user/{user}', [UserController::class, 'destroy'])->name('user.destroy');
+    Route::resource('reviews', ReviewController::class);
+    Route::resource('interview_qustions_category', interviewQusCatController::class);
+    Route::resource('interview_qustions', interviewQustionsController::class);
+    Route::resource('courses', CourseController::class);
 });
 
 Route::get('/userprofile', function () {
@@ -57,33 +61,22 @@ Route::get('/contact', function () {
 
 // Start Roadmaps
 
-Route::get('roadmaps',[Roadmap::class,'roadmaps'])->name('roadmaps');
+Route::get('roadmaps', [Roadmap::class, 'roadmaps'])->name('roadmaps');
 
-Route::get('frontend',[Roadmap::class,'frontend'])->name('frontend');
-Route::get('backend',[Roadmap::class,'backend'])->name('backend');
-Route::get('fullstack',[Roadmap::class,'fullstack'])->name('fullstack');
-Route::get('devops',[Roadmap::class,'devops'])->name('devops');
+Route::get('frontend', [Roadmap::class, 'frontend'])->name('frontend');
+Route::get('backend', [Roadmap::class, 'backend'])->name('backend');
+Route::get('fullstack', [Roadmap::class, 'fullstack'])->name('fullstack');
+Route::get('devops', [Roadmap::class, 'devops'])->name('devops');
 
 // End Roadmaps
 
 
 //Route::resource('user', UserController::class);
 
-Route::resource('interview_qustions_category', interviewQusCatController::class);
-
-Route::resource('interview_qustions', interviewQustionsController::class);
-
-Route::resource('courses', CourseController::class);
-
-Route::resource('reviews',ReviewController::class);
-
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('qustion_categories',[interviewQusCatController::class,'showCategories'])->name('qustion_categories');;
+Route::get('qustion_categories', [interviewQusCatController::class, 'showCategories'])->name('qustion_categories');;
 
-Route::get('qustion_categories/{id}',[interviewQusCatController::class,'getQustionsByCategory']);
-
-
-
+Route::get('qustion_categories/{id}', [interviewQusCatController::class, 'getQustionsByCategory']);
