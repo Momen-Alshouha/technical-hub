@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Interview_Qustions extends Model
 {
     use HasFactory;
-    protected $fillable = ['id','cat_id','qustion','answer'];
+    protected $fillable = ['cat_id', 'question', 'answer'];
 
     public static function countInterviewQuestions() {
         return self::count();

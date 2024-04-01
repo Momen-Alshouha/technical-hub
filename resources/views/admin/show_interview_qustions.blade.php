@@ -13,8 +13,7 @@
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">Qustion ID</th>
-                <th scope="col">Category ID</th>
+                <th scope="col">#</th>
                 <th scope="col">Category Title</th>
                 <th scope="col">Qustion</th>
                 <th scope="col">Answer</th>
@@ -25,7 +24,6 @@
            @foreach ($qustions as $qustion)
         <tr>
             <th scope="row">{{$qustion->id}}</th>
-            <td>{{$qustion->cat_id}}</td>
             <td>{{$qustion->title}}</td>
             <td>{{$qustion->qustion}}</td>
             <td>{{$qustion->answer}}</td>

@@ -21,7 +21,6 @@
     z-index: 99;
 }
 
-
 /*** Spinner ***/
 #spinner {
     opacity: 0;
@@ -152,10 +151,15 @@
 
 
 /*** Header carousel ***/
+
+.header-carousel .owl-carousel-item img {
+    height: 500px;
+}
+
 @media (max-width: 768px) {
     .header-carousel .owl-carousel-item {
         position: relative;
-        min-height: 500px;
+        min-height:300px;
     }
     
     .header-carousel .owl-carousel-item img {
@@ -168,11 +172,12 @@
 
 .header-carousel .owl-nav {
     position: absolute;
-    top: 50%;
+    top: 85%;
     right: 8%;
     transform: translateY(-50%);
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    gap: 10px;
 }
 
 .header-carousel .owl-nav .owl-prev,

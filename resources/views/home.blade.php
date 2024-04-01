@@ -2,7 +2,7 @@
 
 @section('content')
      <!-- Carousel Start -->
-     <div class="container-fluid p-0 mb-5" >
+     <div class="container-fluid p-0 mb-md-5 mb-0" >
         <div  class="owl-carousel header-carousel position-relative">
             
             <div class="owl-carousel-item position-relative">
@@ -100,7 +100,7 @@
                                 <div class="p-4">
                                     <i class="fa fa-3x fa-globe text-primary mb-4"></i>
                                     <h5 class="mb-3">Interview quistions</h5>
-                                    <p>The Most Asked Interview Qustions.</p>
+                                    <p>The Most Asked Interview Qustions.<br>Help you crack your next interview</p>
                                 </div>
                             
                             </div>
@@ -205,4 +205,3 @@
     </div>
     <!-- Testimonial End -->
 @endsection
-

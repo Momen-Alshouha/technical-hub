@@ -13,7 +13,7 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">Course ID</th>
+                    <th scope="col">#</th>
                     <th scope="col">Course Title</th>
                     <th scope="col">Course Description</th>
                     <th scope="col">Course link</th>

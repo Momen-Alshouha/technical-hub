@@ -6,7 +6,7 @@ use Illuminate\Database\Seeder;
 use App\Models\Interview_Qustions;
 use Carbon\Carbon;
 
-class InterviewQuestionsSeeder extends Seeder
+class interviewQuestions extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,16 +15,8 @@ class InterviewQuestionsSeeder extends Seeder
      */
     public function run()
     {
-        // Categories and Questions
-        $categories = [
-            1 => 'HTML',
-            2 => 'Backend',
-            3 => 'Frontend',
-            4 => 'Database'
-        ];
-
         $questions = [
-            1 => [
+            [
                 'What does HTML stand for?',
                 'What is the purpose of the doctype declaration in HTML?',
                 'What are the different types of heading tags in HTML?',
@@ -36,7 +28,7 @@ class InterviewQuestionsSeeder extends Seeder
                 'Explain the concept of HTML entities.',
                 'What is the purpose of the href attribute in the <a> tag?',
             ],
-            2 => [
+            [
                 'What is MVC architecture?',
                 'What is the difference between GET and POST methods?',
                 'What is SQL injection and how can it be prevented?',
@@ -48,7 +40,7 @@ class InterviewQuestionsSeeder extends Seeder
                 'Explain the concept of migrations in Laravel.',
                 'What is the purpose of namespaces in PHP?',
             ],
-            3 => [
+             [
                 'What is the box model in CSS?',
                 'What are the advantages of using CSS preprocessors like SASS or LESS?',
                 'What is the difference between margin and padding?',
@@ -60,7 +52,7 @@ class InterviewQuestionsSeeder extends Seeder
                 'What is the float property in CSS?',
                 'Explain the concept of CSS specificity.',
             ],
-            4 => [
+             [
                 'What is a database and what are its main functions?',
                 'What is SQL and what is its role in database management?',
                 'Explain the difference between a relational database and a non-relational (NoSQL) database.',
@@ -74,9 +66,9 @@ class InterviewQuestionsSeeder extends Seeder
             ],            
         ];
 
-        // Answers
+     
         $answers = [
-            1 => [
+            [
                 'HyperText Markup Language',
                 'To specify which version of HTML the document is using',
                 '<h1> to <h6>',
@@ -88,7 +80,7 @@ class InterviewQuestionsSeeder extends Seeder
                 'Special characters that cannot be easily typed directly into a keyboard',
                 'To specify the destination of a link',
             ],
-            2 => [
+           [
                 'Model-View-Controller',
                 'GET requests data from a specified resource, while POST submits data to be processed',
                 'A security vulnerability where attackers inject SQL code into an input field',
@@ -100,7 +92,7 @@ class InterviewQuestionsSeeder extends Seeder
                 'A way to version control database schema changes in Laravel',
                 'To avoid naming conflicts between different parts of code',
             ],
-            3 => [
+           [
                 'A model for rendering elements in web pages as a box',
                 'They allow for faster and more efficient CSS coding',
                 'Margins are the space outside the border, while padding is the space inside the border',
@@ -112,7 +104,7 @@ class InterviewQuestionsSeeder extends Seeder
                 'Float is a CSS property used to push an element to the left or right, allowing other content to wrap around it',
                 'A set of rules used by browsers to determine which CSS property values are the most relevant to an element',
             ],
-            4 => [
+            [
                 'A database is a structured collection of data that is organized in a way that facilitates efficient retrieval, insertion, updating, and deletion of data. Its main functions include data storage, retrieval, manipulation, and management.',
                 'SQL (Structured Query Language) is a standard programming language used for managing relational databases. Its role in database management includes defining database structure, querying and updating data, and controlling access to the database.',
                 'A relational database organizes data into tables with rows and columns, and relationships between tables are defined using keys. In contrast, a non-relational (NoSQL) database uses a variety of data models for storage, such as document, key-value, or graph, and does not necessarily require a fixed schema.',
@@ -126,13 +118,12 @@ class InterviewQuestionsSeeder extends Seeder
             ],            
         ];
 
-        // Create records for each category
-        foreach ($categories as $categoryId => $categoryName) {
+        for ($j = 0; $j < 4; $j++) {
             for ($i = 0; $i < 10; $i++) {
                 Interview_Qustions::create([
-                    'cat_id' => $categoryId,
-                    'qustion' => $questions[$categoryId][$i],
-                    'answer' => $answers[$categoryId][$i],
+                    'cat_id' => $j+1,
+                    'qustion' => $questions[$j][$i],
+                    'answer' => $answers[$j][$i],
                     'created_at' => Carbon::now()->subDays(rand(0, 30)),
                     'updated_at' => Carbon::now()->subDays(rand(0, 30)),
                 ]);
