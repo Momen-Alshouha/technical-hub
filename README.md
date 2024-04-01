@@ -75,6 +75,17 @@ Before proceeding with the installation, ensure you have Apache installed and co
     php artisan serve
     ```
 
+## Login Credentials
+
+### Admin
+- **Email:** admin@gmail.com
+- **Password:** admin123
+
+### User
+- **Email:** user@gmail.com
+- **Password:** user123
+
+
 Once the server is running, access the application through your web browser.
 
 ## Note:
