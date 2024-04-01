@@ -20,7 +20,7 @@ class InterviewQuestionsSeeder extends Seeder
             1 => 'HTML',
             2 => 'Backend',
             3 => 'Frontend',
-            4 => 'DevOps'
+            4 => 'Database'
         ];
 
         $questions = [
@@ -61,17 +61,17 @@ class InterviewQuestionsSeeder extends Seeder
                 'Explain the concept of CSS specificity.',
             ],
             4 => [
-                'What is Docker and how does it work?',
-                'What is containerization and what are its benefits?',
-                'Explain the concept of microservices architecture.',
-                'What is continuous integration (CI) and continuous deployment (CD)?',
-                'What are the advantages of using Kubernetes?',
-                'What is a Dockerfile?',
-                'What is the purpose of Docker-compose?',
-                'What is the difference between Docker Swarm and Kubernetes?',
-                'Explain the concept of Infrastructure as Code (IaC).',
-                'What is a Jenkins pipeline?',
-            ],
+                'What is a database and what are its main functions?',
+                'What is SQL and what is its role in database management?',
+                'Explain the difference between a relational database and a non-relational (NoSQL) database.',
+                'What is normalization and why is it important in database design?',
+                'What are indexes in databases and why are they used?',
+                'What is a primary key and why is it necessary in a database table?',
+                'What is a foreign key and how is it used to establish relationships between tables?',
+                'What are ACID properties in database transactions?',
+                'Explain the concept of database replication and its benefits.',
+                'What is the role of database transactions in ensuring data integrity?',
+            ],            
         ];
 
         // Answers
@@ -113,17 +113,17 @@ class InterviewQuestionsSeeder extends Seeder
                 'A set of rules used by browsers to determine which CSS property values are the most relevant to an element',
             ],
             4 => [
-                'A platform for developing, shipping, and running applications in containers',
-                'The process of encapsulating an application in a container with its own operating environment',
-                'An architectural style that structures an application as a collection of loosely coupled services',
-                'Practices to merge code changes into a shared repository and automatically deploy applications',
-                'Automates the deployment, scaling, and management of containerized applications',
-                'A text document containing all the commands needed to assemble an image',
-                'A tool for defining and running multi-container Docker applications',
-                'Docker Swarm is Docker\'s native clustering and orchestration tool, while Kubernetes is a more comprehensive orchestration tool',
-                'Managing and provisioning computer data centers through machine-readable definition files',
-                'A set of tools and plugins used to automate the continuous integration and delivery process',
-            ],
+                'A database is a structured collection of data that is organized in a way that facilitates efficient retrieval, insertion, updating, and deletion of data. Its main functions include data storage, retrieval, manipulation, and management.',
+                'SQL (Structured Query Language) is a standard programming language used for managing relational databases. Its role in database management includes defining database structure, querying and updating data, and controlling access to the database.',
+                'A relational database organizes data into tables with rows and columns, and relationships between tables are defined using keys. In contrast, a non-relational (NoSQL) database uses a variety of data models for storage, such as document, key-value, or graph, and does not necessarily require a fixed schema.',
+                'Normalization is the process of organizing data in a database to reduce redundancy and dependency. It is important in database design to improve data integrity, minimize storage space, and facilitate efficient querying and updating of data.',
+                'Indexes in databases are data structures that improve the speed of data retrieval operations on tables. They are used to quickly locate rows in a table based on the values of one or more columns. Indexes enhance query performance but may require additional storage space and maintenance overhead.',
+                'A primary key is a unique identifier for each record in a database table. It ensures that each row in the table is uniquely identifiable and serves as a reference point for establishing relationships with other tables. A primary key is necessary to enforce data integrity and support efficient data retrieval operations.',
+                'A foreign key is a column or a set of columns in one table that references the primary key in another table. It is used to establish relationships between tables by enforcing referential integrity. Foreign keys ensure that the values in the referencing table correspond to valid values in the referenced table.',
+                'ACID (Atomicity, Consistency, Isolation, Durability) properties are the four key properties that guarantee the reliability of database transactions. Atomicity ensures that transactions are indivisible and either complete or do not occur at all. Consistency ensures that transactions maintain the integrity of the database constraints. Isolation ensures that transactions are executed independently of each other. Durability ensures that the effects of committed transactions persist even in the event of system failures.',
+                'Database replication is the process of creating and maintaining multiple copies of a database across different locations or servers. It provides redundancy and fault tolerance, improves data availability, and facilitates load balancing and disaster recovery.',
+                'Database transactions ensure data integrity by enforcing the ACID properties. They provide a mechanism for grouping multiple database operations into a single logical unit of work. Transactions ensure that database modifications are performed atomically and consistently, preserving the integrity and reliability of the data.',
+            ],            
         ];
 
         // Create records for each category
