@@ -18,7 +18,7 @@ Technical Hub is a Laravel project designed to provide a centralized platform fo
 
 ![Screenshot 1](app/screenshots/login.png)
 
-![Screenshot 2](app/screenshots/register.png)
+![Screenshot 2](app/screenshots/signup.png)
 
 ![Screenshot 3](app/screenshots/landing.png)
 
