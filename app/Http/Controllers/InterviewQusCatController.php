@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use Illuminate\Routing\Redirector;
 use App\Models\Interview_Qus_Cat;
 use App\Models\Interview_Qustions;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -12,13 +14,13 @@ class InterviewQusCatController extends Controller
 {
 
     public function getQustionsByCategory($id) {
+        
         $qustionsByCategory = Interview_Qustions::where('cat_id',$id)->get();
         $categoryTitle = Interview_Qus_Cat::where('id', $id)->pluck('title')->first();
         $qustions = DB::table('interview__qustions')
         ->join('interview__qus__cats','interview__qustions.cat_id','=','interview__qus__cats.id')
         ->select('interview__qus__cats.*','interview__qustions.*')->where('cat_id',$id)->get();
         
-
         return view('qustions_by_category',compact(['qustionsByCategory','qustions','categoryTitle']));
     }
 
@@ -31,7 +33,7 @@ class InterviewQusCatController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index() : View
     {
         $categories=Interview_Qus_Cat::all();
         return view('admin.show_categories',compact('categories'));
@@ -42,7 +44,7 @@ class InterviewQusCatController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create() : View
     {
         return view('admin.add_interview_qus_cat');
     }
@@ -53,11 +55,9 @@ class InterviewQusCatController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request) : RedirectResponse
     {
 
-        // Add Validation 
-        
         $data= new Interview_Qus_Cat();
 
         if($request->file('image')){
@@ -72,9 +72,6 @@ class InterviewQusCatController extends Controller
 
         $data->save();
 
-        $categories=Interview_Qus_Cat::all();
-
-        $message = 'Category Added Successfully!';
         return redirect()->route('interview_qustions_category.index')->with('success', 'Category Added Succesfully');
     }
 
@@ -95,7 +92,7 @@ class InterviewQusCatController extends Controller
      * @param  \App\Models\Interview_Qus_Cat  $interview_Qus_Cat
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id) : View
     {
       
         $category = Interview_Qus_Cat::findOrFail($id);
@@ -109,7 +106,7 @@ class InterviewQusCatController extends Controller
      * @param  \App\Models\Interview_Qus_Cat  $interview_Qus_Cat
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id) : RedirectResponse
     {
         $category = Interview_Qus_Cat::findOrFail($id);
     
