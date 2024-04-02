@@ -457,3 +457,9 @@
 .aboutimg {
     object-fit: contain;
 }
+
+.userAvatar {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}

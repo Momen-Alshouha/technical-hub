@@ -96,6 +96,14 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            
+                        @if(Auth::user())
+                            <a class="dropdown-item" href="{{ route('user.profile', Auth::user()->id) }}">
+                                {{ __('Profile') }}
+                            </a>
+                            @endif
+
+
 
                             @if(auth()->user()->isAdmin())
                             <a class="dropdown-item" href="{{ route('dashboard') }}">
@@ -173,7 +181,7 @@
             <div class="copyright">
                 <div class="row">
                     <div class="col-md-12 text-center">
-                        <a class="border-bottom">Technical-HUB</a> &copy;  All Right Reserved. <?php echo date("Y")?><a class="border-bottom" target="_blank" href="https://github.com/Momen-Alshouha"> Mo'men Alshouha</a>
+                        <a class="border-bottom">Technical-HUB</a> &copy; All Right Reserved. <?php echo date("Y") ?><a class="border-bottom" target="_blank" href="https://github.com/Momen-Alshouha"> Mo'men Alshouha</a>
                     </div>
                 </div>
             </div>

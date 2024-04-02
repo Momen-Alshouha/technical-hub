@@ -37,7 +37,6 @@ Route::middleware(['admin'])->group(function () {
     Route::get('dashborad', [AdminController::class, 'index'])->name('dashboard');
     Route::get('users', [UserController::class, 'index'])->name('users');
     Route::delete('user/{user}', [UserController::class, 'destroy'])->name('user.destroy');
-    Route::resource('reviews', ReviewController::class);
     Route::resource('interview_qustions_category', interviewQusCatController::class);
     Route::resource('interview_qustions', interviewQustionsController::class);
     Route::resource('courses', CourseController::class);
@@ -52,14 +51,8 @@ Route::middleware(['admin'])->group(function () {
     
 });
 
-Route::get('/userprofile', function () {
-    return view('user_profile');
-});
-
-Route::get('/userprofile', function () {
-    return view('user_profile')->name('userprofile');
-});
-
+Route::resource('reviews', ReviewController::class)->middleware('auth');
+Route::get('/user/profile/{id}', [UserController::class, 'show'])->name('user.profile')->middleware('auth');
 Route::get('/about', function () {
     return view('about');
 });

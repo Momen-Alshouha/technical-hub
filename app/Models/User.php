@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Laravel\Sanctum\HasApiTokens;
 
@@ -51,5 +50,14 @@ class User extends Authenticatable
 
     public static function countUsers () {
         return self::count();
+    }
+
+    public static function getUser($id) {
+        return User::find($id);
+    }
+
+    public static function checkIfLastAdminExists() : bool {
+     $adminsCount = User::where('is_admin',1)->count();
+      return $adminsCount>1 ? false: true;
     }
 }

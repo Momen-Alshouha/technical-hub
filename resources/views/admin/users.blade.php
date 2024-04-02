@@ -6,7 +6,7 @@
     <hr>
     
     <div class="container-fluid">
-        @if ($message = Session::get('success'))
+        @if ($message = Session::get('message'))
         <div class="alert alert-danger">
             {{$message}}
         </div>

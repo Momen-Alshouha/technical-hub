@@ -6,27 +6,23 @@
     <div class="container py-5">
         <div class="row justify-content-center">
             <div class="col-lg-10 text-center">
-                <h1 class="display-3 text-white animated slideInDown">Profile</h1>
+                <h1 class="display-3 text-white animated slideInDown">{{$user->name}} Profile</h1>
             </div>
         </div>
     </div>
 </div>
 
-<section style="background-color: #eee;">  
+<section>  
 <br>
     <div class="container">
         <div class="row">
             <div class="col-lg-4">
               <div class="card mb-4">
                 <div class="card-body text-center">
-
-                  <h3 class="my-3">John Smith</h3>
+                  <img class="userAvatar" src="https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?size=338&ext=jpg&ga=GA1.1.1224184972.1711843200&semt=sph" alt="">
+                  <h3 class="my-3">{{$user->name}}</h3>
                   <p class="text-muted mb-1">Full Stack Developer</p>
                   <p class="text-muted mb-4">Bay Area, San Francisco, CA</p>
-                  <div class="d-flex justify-content-center mb-2">
-                    <button type="button" class="btn btn-primary">Follow</button>
-                    <button type="button" class="btn btn-outline-primary ms-1">Message</button>
-                  </div>
                 </div>
               </div>
              
@@ -39,7 +35,7 @@
                       <p class="mb-0">Full Name</p>
                     </div>
                     <div class="col-sm-9">
-                      <p class="text-muted mb-0">Johnatan Smith</p>
+                      <p class="text-muted mb-0">{{$user->name}}</p>
                     </div>
                   </div>
                   <hr>
@@ -48,7 +44,7 @@
                       <p class="mb-0">Email</p>
                     </div>
                     <div class="col-sm-9">
-                      <p class="text-muted mb-0">example@example.com</p>
+                      <p class="text-muted mb-0">{{$user->email}}</p>
                     </div>
                   </div>
                   <hr>
