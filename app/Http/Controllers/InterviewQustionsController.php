@@ -6,6 +6,7 @@ use App\Models\Interview_Qustions;
 use App\Models\Interview_Qus_Cat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class InterviewQustionsController extends Controller
 {
@@ -33,14 +34,22 @@ class InterviewQustionsController extends Controller
  
     public function store(Request $request)
     {
-        $qustion = Interview_Qustions::create($request->all());
+    
+        $validatedData = $request->validate([
+            'cat_id' => 'required',
+            'qustion' => 'required',
+            'answer' => 'required',
+        ]);
 
-        $qustions = DB::table('interview__qustions')
-        ->join('interview__qus__cats','interview__qustions.cat_id','=','interview__qus__cats.id')
-        ->select('interview__qus__cats.*','interview__qustions.*')->get();
-
-
-        return redirect()->route('interview_qustions.index')->with('success', 'Qustion Added succesfully');
+        $question = new Interview_Qustions();
+        $question->cat_id = $validatedData['cat_id'];
+        $question->qustion = $validatedData['qustion'];
+        $question->answer = $validatedData['answer'];
+        $question->created_at = Carbon::now()->subDays(rand(0, 30));
+        $question->updated_at = Carbon::now()->subDays(rand(0, 30));
+        $question->save();
+    
+        return redirect()->route('interview_qustions.index')->with('success', 'Question added successfully');
 
     }
 
