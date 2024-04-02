@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Course;
 use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 
 class CourseController extends Controller
 {
@@ -15,7 +16,7 @@ class CourseController extends Controller
     public function index()
     {
         $courses = Course::all();
-        return view('admin.courses',compact('courses'));
+        return view('admin.courses', compact('courses'));
     }
 
     /**
@@ -38,7 +39,6 @@ class CourseController extends Controller
     {
         $course = Course::create($request->all());
         return redirect()->route('courses.index')->with('success', 'Course Added Succesfully');
-
     }
 
     /**
@@ -60,7 +60,8 @@ class CourseController extends Controller
      */
     public function edit(Course $course)
     {
-        //
+        $course = Course::findOrFail($course->id);
+        return view('admin.edit_course', compact('course'));
     }
 
     /**
@@ -70,9 +71,13 @@ class CourseController extends Controller
      * @param  \App\Models\Course  $course
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Course $course)
+    public function update(Request $request, Course $course) : RedirectResponse
     {
-        //
+        if (isset($course->id)) {
+            $course->update($request->all());
+            return redirect()->route('courses.index')->with('success', 'Course Updated Successfully');
+        }
+        return redirect()->route('courses.index');
     }
 
     /**
