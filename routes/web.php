@@ -12,6 +12,7 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\Roadmap;
 use App\Http\Controllers\ReviewController;
 use App\Http\Middleware\isAdmin;
+use Database\Seeders\interviewQuestions;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,9 +42,14 @@ Route::middleware(['admin'])->group(function () {
     Route::resource('interview_qustions', interviewQustionsController::class);
     Route::resource('courses', CourseController::class);
     Route::get('courses/{course}/edit',[CourseController::class, 'edit'])->name('course.edit');
+    Route::put('courses/{course}',[CourseController::class, 'update'])->name('course.update');
     Route::get('interview_qustions_category/{interview_qustions_category}/edit',[InterviewQusCatController::class, 'edit'])->name('interview_qustions_category.edit');
     Route::put('interview_qustions_category/{interview_qustions_category}', [InterviewQusCatController::class, 'update'])->name('interview_qustions_category.update');
-    Route::put('courses/{course}',[CourseController::class, 'update'])->name('course.update');
+
+
+    Route::get('interview_qustion/{interview_qustion}/edit',[interviewQustionsController::class, 'edit'])->name('interview_qustions.edit');
+    Route::put('interview_qustion/{interview_qustion}', [interviewQustionsController::class, 'update'])->name('interview_qustions.update');
+    
 });
 
 Route::get('/userprofile', function () {

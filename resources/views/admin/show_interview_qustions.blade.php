@@ -27,7 +27,15 @@
             <td>{{$qustion->title}}</td>
             <td>{{$qustion->qustion}}</td>
             <td>{{$qustion->answer}}</td>
-            <td><form method="POST" action="{{route('interview_qustions.destroy',$qustion->id)}}">
+            <td class="d-flex gap-1">
+
+            <form method="POST" action="{{route('interview_qustions.edit',$qustion->id)}}">
+            @csrf
+            @method('GET')
+            <button type="submit" class="btn btn-primary">Update</button>
+            </form>
+
+            <form method="POST" action="{{route('interview_qustions.destroy',$qustion->id)}}">
             @csrf
             @method('DELETE')
             <button type="submit" class="btn btn-danger">Delete</button>
