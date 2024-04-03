@@ -79,3 +79,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/reviews', [ReviewController::class, 'store'])->name('reviews.store');
     Route::get('/user/profile/{id}', [UserController::class, 'show'])->name('user.profile');
 });
+
+
+Route::get('/404', function () {
+    abort(404);
+});
