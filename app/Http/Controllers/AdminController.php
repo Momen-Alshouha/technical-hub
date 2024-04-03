@@ -7,6 +7,8 @@ use App\Models\Course;
 use App\Models\Interview_Qus_Cat;
 use App\Models\Interview_Qustions;
 use App\Models\User;
+use App\Models\Review;
+use Illuminate\Contracts\View\View;
 
 class AdminController extends Controller
 {
@@ -24,4 +26,16 @@ class AdminController extends Controller
             'totalUsers' => $totalUsers,
         ]);
     }
+
+      /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getReviews() : View
+    {
+        $reviews = Review::all();
+        return view('admin.reviews', \compact('reviews'));
+    }
+
 }

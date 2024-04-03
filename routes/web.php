@@ -25,33 +25,32 @@ use Database\Seeders\interviewQuestions;
 |
 */
 
-// Route::get('admin', function () {
-//     return view('admin.index');
-// })->name('admin');
-
 Route::get('/', function () {
     return view('home');
 })->name('home');
 
 Route::middleware(['admin'])->group(function () {
-    Route::get('dashborad', [AdminController::class, 'index'])->name('dashboard');
-    Route::get('users', [UserController::class, 'index'])->name('users');
-    Route::delete('user/{user}', [UserController::class, 'destroy'])->name('user.destroy');
-    Route::resource('interview_qustions_category', interviewQusCatController::class);
-    Route::resource('interview_qustions', interviewQustionsController::class);
-    Route::resource('courses', CourseController::class);
-    Route::get('courses/{course}/edit',[CourseController::class, 'edit'])->name('course.edit');
-    Route::put('courses/{course}',[CourseController::class, 'update'])->name('course.update');
-    Route::get('interview_qustions_category/{interview_qustions_category}/edit',[InterviewQusCatController::class, 'edit'])->name('interview_qustions_category.edit');
-    Route::put('interview_qustions_category/{interview_qustions_category}', [InterviewQusCatController::class, 'update'])->name('interview_qustions_category.update');
-
-
-    Route::get('interview_qustion/{interview_qustion}/edit',[interviewQustionsController::class, 'edit'])->name('interview_qustions.edit');
-    Route::put('interview_qustion/{interview_qustion}', [interviewQustionsController::class, 'update'])->name('interview_qustions.update');
-    
+    Route::prefix('admin')->group(function(){
+        Route::get('dashborad', [AdminController::class, 'index'])->name('dashboard');
+        Route::get('users', [UserController::class, 'index'])->name('users');
+        Route::delete('user/{user}', [UserController::class, 'destroy'])->name('user.destroy');
+        Route::resource('interview_qustions_category', interviewQusCatController::class);
+        Route::resource('interview_qustions', interviewQustionsController::class);
+        Route::resource('courses', CourseController::class);
+        Route::get('courses/{course}/edit',[CourseController::class, 'edit'])->name('course.edit');
+        Route::put('courses/{course}',[CourseController::class, 'update'])->name('course.update');
+        Route::get('interview_qustions_category/{interview_qustions_category}/edit',[InterviewQusCatController::class, 'edit'])->name('interview_qustions_category.edit');
+        Route::put('interview_qustions_category/{interview_qustions_category}', [InterviewQusCatController::class, 'update'])->name('interview_qustions_category.update');
+        Route::get('interview_qustion/{interview_qustion}/edit',[interviewQustionsController::class, 'edit'])->name('interview_qustions.edit');
+        Route::put('interview_qustion/{interview_qustion}', [interviewQustionsController::class, 'update'])->name('interview_qustions.update');
+        Route::delete('/reviews/{review}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
+        Route::get('/reviews', [AdminController::class, 'getReviews'])->name('reviews.admin.index');
+    });
 });
 
-Route::resource('reviews', ReviewController::class)->middleware('auth');
+Route::get('/reviews/create', [ReviewController::class, 'create'])->middleware('auth')->name('reviews.create');
+Route::post('/reviews', [ReviewController::class, 'store'])->middleware('auth')->name('reviews.store');
+
 Route::get('/user/profile/{id}', [UserController::class, 'show'])->name('user.profile')->middleware('auth');
 Route::get('/about', function () {
     return view('about');
@@ -72,9 +71,6 @@ Route::get('fullstack', [Roadmap::class, 'fullstack'])->name('fullstack');
 Route::get('devops', [Roadmap::class, 'devops'])->name('devops');
 
 // End Roadmaps
-
-
-//Route::resource('user', UserController::class);
 
 Auth::routes();
 

@@ -64,6 +64,6 @@ class ReviewController extends Controller
     public function destroy(Review $review) : RedirectResponse
     {
         $review->delete();
-        return redirect()->route('reviews.index')->with('success', 'review deleted succesfully');
+        return redirect()->route('reviews.admin.index')->with('success', 'Review Deleted Succesfully');
     }
 }
