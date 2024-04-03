@@ -11,9 +11,10 @@ use App\Http\Controllers\UserAnswerController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\Roadmap;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\SiteController;
 use App\Http\Middleware\isAdmin;
 use Database\Seeders\interviewQuestions;
-
+use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,9 +26,7 @@ use Database\Seeders\interviewQuestions;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+Route::get('/',[SiteController::class,'showHomePage'])->name('home');
 
 Route::middleware(['admin'])->group(function () {
     Route::prefix('admin')->group(function(){
@@ -53,13 +52,9 @@ Route::post('/reviews', [ReviewController::class, 'store'])->middleware('auth')-
 
 Route::get('/user/profile/{id}', [UserController::class, 'show'])->name('user.profile')->middleware('auth');
 
-Route::get('/about', function () {
-    return view('about');
-})->name('about');
+Route::get('/about',[SiteController::class,'showAboutPage'])->name('about');
 
-Route::get('/contact', function () {
-    return view('contact');
-})->name('contact');
+Route::get('/contact',[SiteController::class,'showContactPage'])->name('contact');
 
 
 // Start Roadmaps
@@ -74,8 +69,6 @@ Route::get('devops', [Roadmap::class, 'devops'])->name('devops');
 // End Roadmaps
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('qustion_categories', [interviewQusCatController::class, 'showCategories'])->name('qustion_categories');;
 
