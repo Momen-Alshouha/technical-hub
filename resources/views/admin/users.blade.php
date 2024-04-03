@@ -17,6 +17,7 @@
                     <th scope="col">User ID</th>
                     <th scope="col">Name</th>
                     <th scope="col">Email</th>
+                    <th scope="col">Admin</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
@@ -26,6 +27,7 @@
                 <th scope="row">{{$user->id}}</th>
                 <td>{{$user->name}}</td>
                 <td>{{$user->email}}</td>
+                <td>{{$user->is_admin ? 'yes' : 'No'}}</td>
                 <td><form method="POST" action="{{route('user.destroy',$user->id)}}">
                 @csrf
                 @method('DELETE')
