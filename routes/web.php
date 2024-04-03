@@ -52,13 +52,14 @@ Route::get('/reviews/create', [ReviewController::class, 'create'])->middleware('
 Route::post('/reviews', [ReviewController::class, 'store'])->middleware('auth')->name('reviews.store');
 
 Route::get('/user/profile/{id}', [UserController::class, 'show'])->name('user.profile')->middleware('auth');
+
 Route::get('/about', function () {
     return view('about');
-});
+})->name('about');
 
 Route::get('/contact', function () {
     return view('contact');
-});
+})->name('contact');
 
 
 // Start Roadmaps

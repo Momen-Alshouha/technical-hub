@@ -72,8 +72,8 @@
                 <a href="{{route('home')}}" class="nav-item nav-link {{Request::is('home') ? 'active' : ''}}">Home</a>
                 <a href="{{(Auth::check()?route('qustion_categories'):'register')}}" class="nav-item nav-link {{Request::is('qustion_categories') ? 'active' : ''}}">Qustions</a>
                 <a href="{{(Auth::check()?route('roadmaps'):'register')}}" class="nav-item nav-link {{Request::is('roadmaps') ? 'active' : ''}}">Roadmaps</a>
-                <a href="contact" class="nav-item nav-link {{Request::is('contact') ? 'active' : ''}}">Contact</a>
-                <a href="about" class="nav-item nav-link {{Request::is('about') ? 'active' : ''}}">About</a>
+                <a href="{{route('contact')}}" class="nav-item nav-link {{Request::is('contact') ? 'active' : ''}}">Contact</a>
+                <a href="{{route('about')}}" class="nav-item nav-link {{Request::is('about') ? 'active' : ''}}">About</a>
                     <ul class="navbar-nav ms-auto">
                     <!-- Authentication Links -->
                     @guest
