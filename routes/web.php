@@ -42,8 +42,7 @@ Route::middleware(['admin'])->group(function () {
 });
 
 // Roadmap Routes
-Route::get('roadmaps', [Roadmap::class, 'roadmaps'])->name('roadmaps');
-
+Route::get('roadmaps', [Roadmap::class, 'roadmaps'])->name('roadmaps')->middleware('auth');
 Route::middleware('auth')->prefix('roadmaps')->group(function () {
     Route::get('frontend', [Roadmap::class, 'frontend'])->name('frontend');
     Route::get('backend', [Roadmap::class, 'backend'])->name('backend');
