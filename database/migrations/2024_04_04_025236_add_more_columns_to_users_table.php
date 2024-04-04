@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->unsignedInteger('age')->nullable();
-            $table->string('gender')->nullable();
+            $table->enum('gender', ['male', 'female'])->nullable();
             $table->text('bio')->nullable();
             $table->string('phone_number')->nullable();
             $table->string('address')->nullable();
