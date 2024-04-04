@@ -64,11 +64,11 @@ class InterviewQusCatController extends Controller
             $file= $request->file('image');
             $filename= date('YmdHi').$file->getClientOriginalName();
             $file-> move(public_path('public/Image'), $filename);
-            $data['image']= $filename;
+            $data->image= $filename;
         }
 
-        $data['title']= $request->input('title');
-        $data['description']= $request->input('description');;
+        $data->title= $request->input('title');
+        $data->description= $request->input('description');;
 
         $data->save();
 
@@ -111,14 +111,10 @@ class InterviewQusCatController extends Controller
         $category = Interview_Qus_Cat::findOrFail($id);
     
         if ($request->hasFile('image')) {
-            if ($category->image) {
-                Storage::delete('public/Image/' . $category->image);
-            }
-    
             $file= $request->file('image');
             $filename= date('YmdHi').$file->getClientOriginalName();
             $file-> move(public_path('public/Image'), $filename);
-            $data['image']= $filename;
+            $category->image= $filename;
         }
     
         $category->title = $request->input('title');
@@ -135,7 +131,5 @@ class InterviewQusCatController extends Controller
         $category = Interview_Qus_Cat::find($id);
         $category->delete();
         return redirect()->route('interview_qustions_category.index')->with('success', 'category deleted succesfully');
-    }
-    
-   
+    }   
 }
