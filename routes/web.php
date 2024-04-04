@@ -36,6 +36,8 @@ Route::middleware(['admin'])->group(function () {
         Route::resource('interview_qustions_category', InterviewQusCatController::class);
         Route::resource('interview_qustions', InterviewQustionsController::class);
         Route::resource('courses', CourseController::class);
+        Route::get('courses/{course}/edit', [CourseController::class, 'edit'])->name('course.edit');
+        Route::put('courses/{course}', [CourseController::class, 'update'])->name('course.update');
         Route::delete('/reviews/{review}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
         Route::get('/reviews', [AdminController::class, 'getReviews'])->name('reviews.admin.index');
     });
