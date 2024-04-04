@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
@@ -45,7 +48,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = User::findOrFail($id); 
+        $user = User::findOrFail($id);
 
         if (auth()->user()->id !== $user->id) {
             return redirect()->route('home');
@@ -53,7 +56,41 @@ class UserController extends Controller
         return view('user_profile', compact('user'));
     }
 
-    public static function edit() : View {
-        return view('edit_profile');
+    public static function edit(): View
+    {
+        $user = Auth::user();
+        return view('edit_profile', compact('user'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function update(Request $request, $id): RedirectResponse
+    {
+        $user = User::findOrFail($id);
+    
+        // Check if the request has a new profile picture
+        if ($request->hasFile('profile_pic')) {
+            $file = $request->file('profile_pic');
+            $filename = date('YmdHi') . $file->getClientOriginalName();
+            $file->move(public_path('public/Image/users_profiles_pics'), $filename);
+            $user->profile_pic = $filename;
+        }
+    
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->age = $request->input('age');
+        $user->gender = $request->input('gender');
+        $user->bio = $request->input('bio');
+        $user->phone_number = $request->input('phone_number');
+        $user->address = $request->input('address');
+    
+        $user->save();
+    
+        return redirect()->route('user.profile', $user->id)->with('success', 'User Information Updated Successfully');
     }
 }

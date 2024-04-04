@@ -12,14 +12,19 @@
     </div>
 </div>
 
-<section>  
+<section>
+@if ($message = Session::get('success'))
+    <div class="container alert alert-success" role="alert">
+        {{$message}}
+    </div>
+    @endif  
 <br>
     <div class="container">
         <div class="row">
             <div class="col-lg-4">
               <div class="card mb-4">
                 <div class="card-body text-center">
-                  <img class="userAvatar" src="https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?size=338&ext=jpg&ga=GA1.1.1224184972.1711843200&semt=sph" alt="">
+                  <img class="userAvatar" src="{{asset('public/Image/users_profiles_pics/'.$user->profile_pic)}}" alt="avatar">
                   <h3 class="my-3">{{$user->name}}</h3>
                   <p class="text-muted mb-4">{{$user->address}}</p>
                   <p class="text-muted mb-4">{{$user->bio}}</p>
