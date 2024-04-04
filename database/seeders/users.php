@@ -62,7 +62,7 @@ class users extends Seeder
                 'bio' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
                 'phone_number' => '333333333',
                 'address' => '987 Pine Street, City, Country',
-                'profile_pic' => 'avatar.png',
+                'profile_pic' => 'female_avatar.jpg',
             ],
             [
                 'name' => 'Youssef Hassan',
@@ -86,7 +86,7 @@ class users extends Seeder
                 'bio' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
                 'phone_number' => '444444444',
                 'address' => '321 Elm Street, City, Country',
-                'profile_pic' => 'avatar.png',
+                'profile_pic' => 'female_avatar.jpg',
             ],
             [
                 'name' => 'Hoda Ibrahim',
@@ -98,7 +98,7 @@ class users extends Seeder
                 'bio' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
                 'phone_number' => '666666666',
                 'address' => '753 Maple Street, City, Country',
-                'profile_pic' => 'avatar.png',
+                'profile_pic' => 'female_avatar.jpg',
             ],
             [
                 'name' => 'Nour Ali',
@@ -110,7 +110,7 @@ class users extends Seeder
                 'bio' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
                 'phone_number' => '777777777',
                 'address' => '852 Cedar Street, City, Country',
-                'profile_pic' => 'avatar.png',
+                'profile_pic' => 'female_avatar.jpg',
             ],
             [
                 'name' => 'Khaled Ahmed',
@@ -122,7 +122,7 @@ class users extends Seeder
                 'bio' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
                 'phone_number' => '888888888',
                 'address' => '963 Walnut Street, City, Country',
-                'profile_pic' => 'avatar.png',
+                'profile_pic' => 'avatar.jpg',
             ],
             [
                 'name' => 'Mariam Saleh',
@@ -134,7 +134,7 @@ class users extends Seeder
                 'bio' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
                 'phone_number' => '999999999',
                 'address' => '159 Oak Street, City, Country',
-                'profile_pic' => 'avatar.png',
+                'profile_pic' => 'female_avatar.jpg',
             ],
             [
                 'name' => 'Sara Hassan',
@@ -146,7 +146,7 @@ class users extends Seeder
                 'bio' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
                 'phone_number' => '111111111',
                 'address' => '258 Maple Street, City, Country',
-                'profile_pic' => 'avatar.png',
+                'profile_pic' => 'female_avatar.jpg',
             ],
             [
                 'name' => 'Mohammed Omar',
