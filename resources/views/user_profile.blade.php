@@ -23,6 +23,7 @@
                   <h3 class="my-3">{{$user->name}}</h3>
                   <p class="text-muted mb-1">Full Stack Developer</p>
                   <p class="text-muted mb-4">Bay Area, San Francisco, CA</p>
+                  <a class="btn btn-primary" href="{{route('user.edit',Auth::user()->id)}}">Edit Profile</a>
                 </div>
               </div>
              

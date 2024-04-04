@@ -52,4 +52,8 @@ class UserController extends Controller
         }
         return view('user_profile', compact('user'));
     }
+
+    public static function edit() : View {
+        return view('edit_profile');
+    }
 }

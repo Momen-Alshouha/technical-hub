@@ -21,6 +21,7 @@ Auth::routes();
 Route::middleware('auth')->group(function () {
     // User Profile
     Route::get('/user/profile/{id}', [UserController::class, 'show'])->name('user.profile');
+    Route::get('/user/{id}/edit', [UserController::class, 'edit'])->name('user.edit');
 
     // Reviews
     Route::get('/reviews/create', [ReviewController::class, 'create'])->name('reviews.create');
