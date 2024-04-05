@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Roadmap;
+use App\Models\RoadmapsCategory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\ViewErrorBag;
 
 class RoadmapController extends Controller
 {
@@ -58,10 +60,11 @@ class RoadmapController extends Controller
      * @param  \App\Models\Roadmap  $roadmap
      * @return \Illuminate\Http\Response
      */
-    public function edit(Roadmap $roadmap)
+    public function edit($id) : View
     {
-        echo 'edit';
-        die;
+        $categories = RoadmapsCategory::all();
+        $roadmap = Roadmap::findOrFail($id);
+        return view('admin.roadmaps.update',compact(['roadmap','categories']));
     }
 
     /**
