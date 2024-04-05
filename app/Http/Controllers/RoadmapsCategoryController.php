@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\RoadmapsCategory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class RoadmapsCategoryController extends Controller
@@ -12,9 +14,10 @@ class RoadmapsCategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(): View
     {
-        //
+        $roadmapsCategories = RoadmapsCategory::all();
+        return view('admin.roadmaps.roadmaps_categories', compact('roadmapsCategories'));
     }
 
     /**
@@ -22,9 +25,9 @@ class RoadmapsCategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(): View
     {
-        //
+        return view('admin.roadmaps.add_category');
     }
 
     /**
@@ -33,10 +36,27 @@ class RoadmapsCategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
-        //
+        $category = new RoadmapsCategory();
+
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            if ($file->isValid()) {
+                $filename = date('YmdHi') . $file->getClientOriginalName();
+                $file->move(public_path('public/Image/roadmaps_categories'), $filename);
+                $category->image = $filename;
+            }
+        }
+
+        $category->name = $request->input('name');
+        $category->description = $request->input('description');
+
+        $category->save();
+
+        return redirect()->route('roadmaps.categories.index')->with('success', 'Roadmaps Category Added Successfully');
     }
+
 
     /**
      * Display the specified resource.
@@ -55,9 +75,10 @@ class RoadmapsCategoryController extends Controller
      * @param  \App\Models\RoadmapsCategory  $roadmapsCategory
      * @return \Illuminate\Http\Response
      */
-    public function edit(RoadmapsCategory $roadmapsCategory)
+    public function edit($id): View
     {
-        //
+        $category = RoadmapsCategory::findOrFail($id);
+        return view('admin.roadmaps.edit_category', compact('category'));
     }
 
     /**
@@ -67,9 +88,26 @@ class RoadmapsCategoryController extends Controller
      * @param  \App\Models\RoadmapsCategory  $roadmapsCategory
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, RoadmapsCategory $roadmapsCategory)
+    public function update(Request $request, $id): RedirectResponse
     {
-        //
+
+        $roadmapsCategory = RoadmapsCategory::findOrFail($id);
+
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            if ($file->isValid()) {
+                $filename = date('YmdHi') . $file->getClientOriginalName();
+                $file->move(public_path('public/Image/roadmaps_categories'), $filename);
+                $roadmapsCategory->image = $filename;
+            }
+        }
+
+        $roadmapsCategory->name = $request->input('name');
+        $roadmapsCategory->description = $request->input('description');
+
+        $roadmapsCategory->save();
+
+        return redirect()->route('roadmaps.categories.index')->with('success', 'Roadmaps Category Updated Successfully');
     }
 
     /**
@@ -78,8 +116,10 @@ class RoadmapsCategoryController extends Controller
      * @param  \App\Models\RoadmapsCategory  $roadmapsCategory
      * @return \Illuminate\Http\Response
      */
-    public function destroy(RoadmapsCategory $roadmapsCategory)
+    public function destroy($id): RedirectResponse
     {
-        //
+        $category = RoadmapsCategory::find($id);
+        $category->delete();
+        return redirect()->route('roadmaps.categories.index')->with('message', 'Category deleted successfully');
     }
 }

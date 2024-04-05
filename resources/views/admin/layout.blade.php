@@ -76,6 +76,14 @@
                             <a href="{{route('courses.create')}}" class="dropdown-item">Add Course</a>
                         </div>
                     </div>
+
+                    <div class="nav-item dropdown">
+                        <a href="" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Roadmaps Categories</a>
+                        <div class="dropdown-menu bg-transparent border-0">
+                            <a href="{{route('roadmaps.categories.index')}}" class="dropdown-item">Show Categories</a>
+                            <a href="{{route('roadmaps.category.create')}}" class="dropdown-item">Add Category</a>
+                        </div>
+                    </div>
                     
                    
                 </div>
