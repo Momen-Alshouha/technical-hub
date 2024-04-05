@@ -27,9 +27,10 @@ class RoadmapController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create() : View
     {
-        //
+        $categories = RoadmapsCategory::all();
+        return view('admin.roadmaps.add',compact('categories'));
     }
 
     /**
@@ -41,6 +42,9 @@ class RoadmapController extends Controller
     public function store(Request $request)
     {
         //
+
+        echo 'store';
+        die;
     }
 
     /**
