@@ -30,7 +30,7 @@
         <div class="form-group">
             <label for="image">Current Image</label><br>
             @if ($roadmap->image)
-            <img src="{{ asset('public/Image/' . $roadmap->image) }}" alt="Current Image" style="max-width: 200px;">
+            <img src="{{ asset('public/Image/roadmaps/' . $roadmap->image) }}" alt="Current Image" style="max-width: 200px;">
             @else
             <p>No image available</p>
             @endif
@@ -38,9 +38,9 @@
 
         <div class="form-group">
             <label for="image">Upload New Image</label>
-            <input type="file" name="image" id="image">
+            <input class="form-control" type="file" name="image" id="image">
         </div><br>
-        
+
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>

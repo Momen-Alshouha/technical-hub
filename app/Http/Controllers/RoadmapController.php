@@ -39,12 +39,25 @@ class RoadmapController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request) : RedirectResponse
     {
-        //
+        $roadmap = new Roadmap();
 
-        echo 'store';
-        die;
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            if ($file->isValid()) {
+                $filename = date('YmdHi') . $file->getClientOriginalName();
+                $file->move(public_path('public/Image/roadmaps'), $filename);
+                $roadmap->image = $filename;
+            }
+        }
+        $roadmap->cat_id = $request->input('cat_id');
+        $roadmap->name = $request->input('name');
+        $roadmap->description = $request->input('description');
+
+        $roadmap->save();
+
+        return redirect()->route('admin.roadmaps.index')->with('success', 'Roadmaps Category Added Successfully');
     }
 
     /**

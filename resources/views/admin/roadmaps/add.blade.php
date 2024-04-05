@@ -4,7 +4,7 @@
 <h1 style="margin:30px">Add Roadmap</h1>
 <hr>
 <div class="add-form  container">
-    <form action="{{route('admin.roadmap.store')}}" method="POST">
+    <form action="{{route('admin.roadmap.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
             <select id="cat_id" name="cat_id" class="form-select">
@@ -20,7 +20,7 @@
         </div><br>
 
         <div class="form-group">
-            <label for="title">Roadmap Name</label>
+            <label for="name">Roadmap Name</label>
             <input  name="name" type="text" class="form-control" id="name">
         </div><br>
 
