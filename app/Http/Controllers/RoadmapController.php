@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Roadmap;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class RoadmapController extends Controller
@@ -12,9 +14,10 @@ class RoadmapController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(): View
     {
-        //
+        $roadmaps = Roadmap::getRoadmapsWithCategories();
+        return view('admin.roadmaps.roadmaps', compact('roadmaps'));
     }
 
     /**
@@ -57,7 +60,8 @@ class RoadmapController extends Controller
      */
     public function edit(Roadmap $roadmap)
     {
-        //
+        echo 'edit';
+        die;
     }
 
     /**
@@ -78,8 +82,10 @@ class RoadmapController extends Controller
      * @param  \App\Models\Roadmap  $roadmap
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Roadmap $roadmap)
+    public function destroy($id) : RedirectResponse
     {
-        //
+        $roadmap = Roadmap::findOrFail($id);
+        $roadmap->delete();
+        return redirect()->route('admin.roadmaps.index')->with('message','Roadmap Deleted Successfully!');
     }
 }

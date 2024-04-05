@@ -17,7 +17,7 @@ class RoadmapsCategoryController extends Controller
     public function index(): View
     {
         $roadmapsCategories = RoadmapsCategory::all();
-        return view('admin.roadmaps.roadmaps_categories', compact('roadmapsCategories'));
+        return view('admin.roadmaps_categories.roadmaps_categories', compact('roadmapsCategories'));
     }
 
     /**
@@ -27,7 +27,7 @@ class RoadmapsCategoryController extends Controller
      */
     public function create(): View
     {
-        return view('admin.roadmaps.add_category');
+        return view('admin.roadmaps_categories.add_category');
     }
 
     /**
@@ -78,7 +78,7 @@ class RoadmapsCategoryController extends Controller
     public function edit($id): View
     {
         $category = RoadmapsCategory::findOrFail($id);
-        return view('admin.roadmaps.edit_category', compact('category'));
+        return view('admin.roadmaps_categories.edit_category', compact('category'));
     }
 
     /**
