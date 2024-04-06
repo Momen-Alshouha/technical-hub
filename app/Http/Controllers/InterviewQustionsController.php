@@ -23,7 +23,7 @@ class InterviewQustionsController extends Controller
             ->join('interview__qus__cats', 'interview__qustions.cat_id', '=', 'interview__qus__cats.id')
             ->select('interview__qus__cats.*', 'interview__qustions.*')->get();
 
-        return view('admin.show_interview_qustions', compact('qustions'));
+        return view('admin.interview_questions.show_interview_qustions', compact('qustions'));
     }
 
 
@@ -35,7 +35,7 @@ class InterviewQustionsController extends Controller
     public function create()
     {
         $categories = Interview_Qus_Cat::all();
-        return view('admin.add_interview_qustions', compact('categories'));
+        return view('admin.interview_questions.add_interview_qustions', compact('categories'));
     }
 
 
@@ -89,7 +89,7 @@ class InterviewQustionsController extends Controller
         $question = Interview_Qustions::find($id);
         $categories = Interview_Qus_Cat::all();
 
-        return view('admin.edit_interview_question', compact('question', 'categories'));
+        return view('admin.interview_questions.edit_interview_question', compact('question', 'categories'));
     }
 
     /**

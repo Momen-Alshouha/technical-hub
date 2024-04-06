@@ -36,7 +36,7 @@ class InterviewQusCatController extends Controller
     public function index() : View
     {
         $categories=Interview_Qus_Cat::all();
-        return view('admin.show_categories',compact('categories'));
+        return view('admin.interview_questions.show_categories',compact('categories'));
     }
 
     /**
@@ -46,7 +46,7 @@ class InterviewQusCatController extends Controller
      */
     public function create() : View
     {
-        return view('admin.add_interview_qus_cat');
+        return view('admin.interview_questions.add_interview_qus_cat');
     }
 
     /**
@@ -96,7 +96,7 @@ class InterviewQusCatController extends Controller
     {
       
         $category = Interview_Qus_Cat::findOrFail($id);
-        return view('admin.edit_interview_qus_cat', compact('category'));
+        return view('admin.interview_questions.edit_interview_qus_cat', compact('category'));
     }
 
     /**

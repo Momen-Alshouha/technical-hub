@@ -17,7 +17,7 @@ class CourseController extends Controller
     public function index() : View
     {
         $courses = Course::all();
-        return view('admin.courses', compact('courses'));
+        return view('admin.courses.courses', compact('courses'));
     }
 
     /**
@@ -27,7 +27,7 @@ class CourseController extends Controller
      */
     public function create() : View
     {
-        return view('admin.add_course');
+        return view('admin.courses.add_course');
     }
 
     /**
@@ -51,7 +51,7 @@ class CourseController extends Controller
     public function edit(Course $course) : View
     {
         $course = Course::findOrFail($course->id);
-        return view('admin.edit_course', compact('course'));
+        return view('admin.courses.edit_course', compact('course'));
     }
 
     /**
