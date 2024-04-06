@@ -4,7 +4,7 @@
 <h1 style="margin:30px">Edit Roadmap</h1>
 <hr>
 <div class="add-form  container">
-    <form action="{{route('admin.roadmap.update',$roadmap->id)}}" method="POST">
+    <form action="{{route('admin.roadmap.update',$roadmap->id)}}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="form-group">
