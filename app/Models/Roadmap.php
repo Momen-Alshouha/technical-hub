@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Roadmap extends Model
 {
@@ -34,5 +35,10 @@ class Roadmap extends Model
     public function category()
     {
         return $this->belongsTo(RoadmapsCategory::class, 'cat_id');
+    }
+
+    public function roadmapSteps(): HasMany
+    {
+        return $this->hasMany(RoadmapStep::class);
     }
 }

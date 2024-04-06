@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Roadmap;
 use App\Models\RoadmapStep;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
 class RoadmapStepController extends Controller
@@ -12,9 +14,31 @@ class RoadmapStepController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id) : View
     {
-        //
+        $steps = $this->getRoadmapStepsAndRoadmapNameByRoadmap($id);
+        return view('admin.roadmaps.steps.index',compact('steps'));
+    }
+
+    public function getRoadmapStepsAndRoadmapNameByRoadmap($id)
+    {
+        $roadmapName = Roadmap::select('name')->where('id',$id)->first();
+
+        $steps = RoadmapStep::where('roadmap_id', $id)
+            ->orderBy('sequence')
+            ->get();
+
+        $steps = $steps->map(function ($step) use ($roadmapName) {
+            return [
+                'roadmapName' => $roadmapName->name,
+                'id' => $step->id,
+                'title' => $step->title,
+                'description' => $step->description,
+                'sequence' => $step->sequence,
+            ];
+        });
+
+        return $steps;
     }
 
     /**

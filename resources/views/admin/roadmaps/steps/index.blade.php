@@ -1,7 +1,7 @@
 @extends('admin.layout')
 
 @section('content')
-<h1 style="margin:30px">Roadmaps</h1>
+<h1 style="margin:30px"> {{$steps[0]['roadmapName']}} Roadmap Steps</h1>
 <hr>
 <div class="container-fluid">
     @if ($message = Session::get('message'))
@@ -10,47 +10,43 @@
     </div>
     @endif
 
-    @if(count($roadmaps))
+    @if(count($steps))
     <table class="table">
         <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Name</th>
+                <th scope="col">Title</th>
                 <th scope="col">Description</th>
-                <th scope="col">Category</th>
-                <th scope="col">Image</th>
-                <th scope="col">Action</th>
+                <!-- <th scope="col">Action</th> -->
             </tr>
         </thead>
         <tbody>
-            @foreach ($roadmaps as $roadmap)
+            @foreach ($steps as $step)
             <tr>
-                <th scope="row">{{$roadmap->id}}</th>
-                <td>{{$roadmap->name}}</td>
-                <td>{{$roadmap->description}}</td>
-                <td>{{$roadmap->category->name}}</td>
-                <td><img src="{{asset('public/Image/roadmaps/'.$roadmap->image)}}" style="height: 150px; width: 150px;"></td>
-                <td>
-                    <form class=" text-white d-inline" action="{{route('admin.roadmap.steps',$roadmap->id)}}" method="POST">
+                <th scope="row">{{$step['sequence']}}</th>
+                <td>{{$step['title']}}</td>
+                <td>{{$step['description']}}</td>
+                <!-- <td>
+                    <form class=" text-white d-inline" action="{{route('admin.roadmap.steps',$step['id'])}}" method="POST">
                         @csrf
                         @method('GET')
                         <button type="submit" class="btn btn-success">Steps</button>
                     </form>
 
-                    <form class="d-inline m-1" action="{{ route('admin.roadmap.edit', $roadmap->id) }}" method="POST">
+                    <form class="d-inline m-1" action="{{ route('admin.roadmap.edit', $step['id']) }}" method="POST">
                         @csrf
                         @method('GET')
                         <button type="submit" class="btn btn-primary">Update</button>
                     </form>
 
 
-                    <form class="d-inline" action="{{route('admin.roadmap.delete',$roadmap->id)}}" method="POST">
+                    <form class="d-inline" action="{{route('admin.roadmap.delete',$step['id'])}}" method="POST">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Delete</button>
                     </form>
-                </td>
-            </tr>
+                </td> -->
+            </tr> 
             @endforeach
         </tbody>
     </table>

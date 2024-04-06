@@ -9,7 +9,7 @@ use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\Roadmap;
 use App\Http\Controllers\RoadmapController;
 use App\Http\Controllers\RoadmapsCategoryController;
-
+use App\Http\Controllers\RoadmapStepController;
 
 Route::middleware(['admin'])->group(function () {
     Route::prefix('admin')->group(function () {
@@ -40,5 +40,8 @@ Route::middleware(['admin'])->group(function () {
         Route::get('/roadmap/{id}/edit', [RoadmapController::class, 'edit'])->name('admin.roadmap.edit');
         Route::put('/roadmap/{id}', [RoadmapController::class, 'update'])->name('admin.roadmap.update');
         
+
+        // roadmaps steps
+        Route::get('/roadmaps/step/{id}', [RoadmapStepController::class, 'index'])->name('admin.roadmap.steps');
     });
 });
