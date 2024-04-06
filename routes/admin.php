@@ -43,5 +43,6 @@ Route::middleware(['admin'])->group(function () {
 
         // roadmaps steps
         Route::get('/roadmaps/step/{id}', [RoadmapStepController::class, 'index'])->name('admin.roadmap.steps');
+        Route::delete('/roadmaps/steps/{id}/delete', [RoadmapStepController::class, 'destroyAll'])->name('admin.roadmap.steps.destroy');
     });
 });

@@ -14,15 +14,15 @@ class RoadmapStepController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id) : View
+    public function index($id): View
     {
         $steps = $this->getRoadmapStepsAndRoadmapNameByRoadmap($id);
-        return view('admin.roadmaps.steps.index',compact('steps'));
+        return view('admin.roadmaps.steps.index', compact('steps'));
     }
 
     public function getRoadmapStepsAndRoadmapNameByRoadmap($id)
     {
-        $roadmapName = Roadmap::select('name')->where('id',$id)->first();
+        $roadmapName = Roadmap::select('name')->where('id', $id)->first();
 
         $steps = RoadmapStep::where('roadmap_id', $id)
             ->orderBy('sequence')
@@ -31,6 +31,7 @@ class RoadmapStepController extends Controller
         $steps = $steps->map(function ($step) use ($roadmapName) {
             return [
                 'roadmapName' => $roadmapName->name,
+                'roadmapId' => $step->roadmap_id,
                 'id' => $step->id,
                 'title' => $step->title,
                 'description' => $step->description,
@@ -105,5 +106,10 @@ class RoadmapStepController extends Controller
     public function destroy(RoadmapStep $roadmapStep)
     {
         //
+    }
+    public function destroyAll($roadmapId)
+    {
+        RoadmapStep::where('roadmap_id', $roadmapId)->delete();
+        return redirect()->back()->with('message', 'All roadmap steps  have been deleted.');
     }
 }

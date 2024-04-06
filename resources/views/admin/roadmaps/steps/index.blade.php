@@ -1,23 +1,24 @@
 @extends('admin.layout')
 
 @section('content')
-<h1 style="margin:30px"> {{$steps[0]['roadmapName']}} Roadmap Steps</h1>
-<hr>
+
 <div class="container-fluid">
-    @if ($message = Session::get('message'))
+ 
+
+    @if(count($steps))
+    <h1 style="margin:30px"> {{$steps[0]['roadmapName']}} Roadmap Steps</h1>
+<hr>
+@if ($message = Session::get('message'))
     <div class="alert alert-success" role="alert">
         {{$message}}
     </div>
     @endif
-
-    @if(count($steps))
     <table class="table">
         <thead>
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Title</th>
                 <th scope="col">Description</th>
-                <!-- <th scope="col">Action</th> -->
             </tr>
         </thead>
         <tbody>
@@ -46,13 +47,18 @@
                         <button type="submit" class="btn btn-danger">Delete</button>
                     </form>
                 </td> -->
-            </tr> 
+            </tr>
             @endforeach
         </tbody>
     </table>
+    <form class="d-inline m-1" action="{{ route('admin.roadmap.steps.destroy', $steps[0]['roadmapId']) }}" method="POST">
+        @csrf
+        @method('DELETE')
+        <button type="submit" class="btn btn-danger">Delete All Steps</button>
+    </form>
 </div>
 @else
-<span class="container display-5">No Roadmaps Available</span>
+<span class="d-block mt-3 container display-5">No Roadmap Steps Available</span>
 @endif
 
 @endsection
