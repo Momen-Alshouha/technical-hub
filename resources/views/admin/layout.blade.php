@@ -50,10 +50,10 @@
                 <div class="navbar-nav w-100">
                     <a href="{{route('dashboard')}}" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                     <a href="{{route('users')}}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Users</a>
-                    <a href="{{route('reviews.admin.index')}}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Reviews</a>
+                    <a href="{{route('reviews.admin.index')}}" class="nav-item nav-link"><i class="fa fa-comment me-2"></i>Reviews</a>
                     
                     <div class="nav-item dropdown">
-                        <a href="" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Questions Categories</a>
+                        <a href="" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-question-circle me-2"></i>Questions Categories</a>
                         <div class="dropdown-menu bg-transparent border-0">
                             <a href="{{route('interview_qustions_category.index')}}" class="dropdown-item">Show Categories</a>
                             <a href="{{route('interview_qustions_category.create')}}" class="dropdown-item">Add Category</a>
@@ -61,7 +61,7 @@
                     </div>
 
                     <div class="nav-item dropdown">
-                        <a href="" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Questions</a>
+                        <a href="" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-question me-2"></i>Questions</a>
                         <div class="dropdown-menu bg-transparent border-0">
                            
                             <a href="{{route('interview_qustions.index')}}" class="dropdown-item">Show Questions</a>
