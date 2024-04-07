@@ -2,17 +2,18 @@
 
 @section('content')
 
-<div class="container-fluid">
- 
-
-    @if(count($steps))
-    <h1 style="margin:30px"> {{$steps[0]['roadmapName']}} Roadmap Steps</h1>
+<h1 style="margin:30px"> {{$roadmap->name}} Roadmap Steps</h1>
+<h4 style="margin:30px">{{$roadmap->description}}</h4>
 <hr>
-@if ($message = Session::get('message'))
-    <div class="alert alert-success" role="alert">
+
+<div class="container-fluid">
+    @if ($message = Session::get('message'))
+    <div class="container alert alert-success" role="alert">
         {{$message}}
     </div>
     @endif
+
+    @if(count($steps))
     <table class="table">
         <thead>
             <tr>
@@ -51,14 +52,22 @@
             @endforeach
         </tbody>
     </table>
-    <form class="d-inline m-1" action="{{ route('admin.roadmap.steps.destroy', $steps[0]['roadmapId']) }}" method="POST">
-        @csrf
-        @method('DELETE')
-        <button type="submit" class="btn btn-danger">Delete All Steps</button>
-    </form>
 </div>
 @else
 <span class="d-block mt-3 container display-5">No Roadmap Steps Available</span>
 @endif
-
+<div class="m-3 actions">
+    <form class="d-inline m-1" action="{{ route('admin.roadmap.step.create', $roadmap->id) }}" method="POST">
+        @csrf
+        @method('GET')
+        <button type="submit" class="btn btn-primary">Add Step</button>
+    </form>
+    @if(count($steps))
+    <form class="d-inline m-1" action="{{ route('admin.roadmap.steps.destroy', $roadmap->id) }}" method="POST">
+        @csrf
+        @method('DELETE')
+        <button type="submit" class="btn btn-danger">Delete All Steps</button>
+    </form>
+    @endif
+</div>
 @endsection

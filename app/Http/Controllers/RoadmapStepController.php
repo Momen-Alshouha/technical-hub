@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Roadmap;
 use App\Models\RoadmapStep;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 
 class RoadmapStepController extends Controller
 {
@@ -16,8 +19,9 @@ class RoadmapStepController extends Controller
      */
     public function index($id): View
     {
+        $roadmap = DB::table('roadmaps')->where('id', $id)->first();
         $steps = $this->getRoadmapStepsAndRoadmapNameByRoadmap($id);
-        return view('admin.roadmaps.steps.index', compact('steps'));
+        return view('admin.roadmaps.steps.index', compact(['steps', 'roadmap']));
     }
 
     public function getRoadmapStepsAndRoadmapNameByRoadmap($id)
@@ -47,9 +51,10 @@ class RoadmapStepController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id): View
     {
-        //
+        $roadmap = Roadmap::findOrFail($id);
+        return view('admin.roadmaps.steps.add', compact('roadmap'));
     }
 
     /**
@@ -58,9 +63,21 @@ class RoadmapStepController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id): RedirectResponse
     {
-        //
+        $roadmap = Roadmap::findOrFail($id);
+
+        // Get the maximum sequence number for the given roadmap
+        $maxSequence = RoadmapStep::where('roadmap_id', $id)->max('sequence');
+
+        $step = new RoadmapStep();
+        $step->roadmap_id = $id;
+        $step->title = $request->input('title');
+        $step->description = $request->input('description');
+        $step->sequence = $maxSequence + 1; // Set the sequence number
+        $step->save();
+        $message = 'Step Added Successfully';
+        return Redirect::route('admin.roadmap.step.create', ['id'=>$id,'roadmap' => $roadmap])->with('message', $message);
     }
 
     /**

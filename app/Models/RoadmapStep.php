@@ -26,4 +26,9 @@ class RoadmapStep extends Model
     {
         return static::where('roadmap_id', $roadmapId)->orderBy('sequence')->get();
     }
+
+    public static function getNumberOfStepForSpecificRoadmap($roadmapId)
+    {
+        return self::where('roadmap_id', $roadmapId)->count();
+    }
 }
