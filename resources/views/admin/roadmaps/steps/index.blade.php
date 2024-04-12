@@ -20,6 +20,7 @@
                 <th scope="col">#</th>
                 <th scope="col">Title</th>
                 <th scope="col">Description</th>
+                <th scope="col">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -28,26 +29,22 @@
                 <th scope="row">{{$step['sequence']}}</th>
                 <td>{{$step['title']}}</td>
                 <td>{{$step['description']}}</td>
-                <!-- <td>
-                    <form class=" text-white d-inline" action="{{route('admin.roadmap.steps',$step['id'])}}" method="POST">
-                        @csrf
-                        @method('GET')
-                        <button type="submit" class="btn btn-success">Steps</button>
-                    </form>
-
+                <td>
+                    <!-- 
                     <form class="d-inline m-1" action="{{ route('admin.roadmap.edit', $step['id']) }}" method="POST">
                         @csrf
                         @method('GET')
                         <button type="submit" class="btn btn-primary">Update</button>
-                    </form>
+                    </form> -->
 
 
-                    <form class="d-inline" action="{{route('admin.roadmap.delete',$step['id'])}}" method="POST">
+                    <form class="d-inline" action="{{ route('admin.roadmap.step.destroy', ['stepId' => $step['id'], 'roadmapId' => $roadmap->id]) }}" method="POST">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Delete</button>
                     </form>
-                </td> -->
+
+                </td>
             </tr>
             @endforeach
         </tbody>

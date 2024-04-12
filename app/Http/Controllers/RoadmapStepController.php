@@ -120,10 +120,17 @@ class RoadmapStepController extends Controller
      * @param  \App\Models\RoadmapStep  $roadmapStep
      * @return \Illuminate\Http\Response
      */
-    public function destroy(RoadmapStep $roadmapStep)
+    public function destroy(Request $request, $stepId, $roadmapId) : RedirectResponse
     {
-        //
+        $roadmapStep = RoadmapStep::findOrFail($stepId);
+        $roadmapStep->delete();
+    
+        $request->session()->push('success', 'Step deleted successfully.');
+        
+        return redirect()->route('admin.roadmap.steps', ['id' => $roadmapId])->with('message', 'Step Deleted Successfully');;
     }
+    
+
     public function destroyAll($roadmapId)
     {
         RoadmapStep::where('roadmap_id', $roadmapId)->delete();
