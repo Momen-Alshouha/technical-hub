@@ -45,6 +45,8 @@ Route::middleware(['admin'])->group(function () {
         Route::get('/roadmaps/step/{id}/create', [RoadmapStepController::class, 'create'])->name('admin.roadmap.step.create');
         Route::post('/roadmaps/step/{id}/store', [RoadmapStepController::class, 'store'])->name('admin.roadmap.step.store');
         Route::get('/roadmaps/step/{id}', [RoadmapStepController::class, 'index'])->name('admin.roadmap.steps');
+        Route::get('/roadmaps/step/{id}/edit', [RoadmapStepController::class, 'edit'])->name('admin.roadmap.step.edit');
+        Route::put('/roadmaps/step/{id}/update', [RoadmapStepController::class, 'update'])->name('admin.roadmap.step.update');
         Route::delete('/roadmaps/steps/{id}/delete', [RoadmapStepController::class, 'destroyAll'])->name('admin.roadmap.steps.destroy');
         Route::delete('/roadmaps/steps/{stepId}/{roadmapId}', [RoadmapStepController::class, 'destroy'])->name('admin.roadmap.step.destroy');
     });

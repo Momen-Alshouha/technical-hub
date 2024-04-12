@@ -30,12 +30,12 @@
                 <td>{{$step['title']}}</td>
                 <td>{{$step['description']}}</td>
                 <td>
-                    <!-- 
-                    <form class="d-inline m-1" action="{{ route('admin.roadmap.edit', $step['id']) }}" method="POST">
+                    
+                    <form class="d-inline m-1" action="{{ route('admin.roadmap.step.edit', $step['id']) }}" method="POST">
                         @csrf
                         @method('GET')
                         <button type="submit" class="btn btn-primary">Update</button>
-                    </form> -->
+                    </form>
 
 
                     <form class="d-inline" action="{{ route('admin.roadmap.step.destroy', ['stepId' => $step['id'], 'roadmapId' => $roadmap->id]) }}" method="POST">

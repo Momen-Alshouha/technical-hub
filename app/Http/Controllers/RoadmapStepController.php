@@ -77,7 +77,7 @@ class RoadmapStepController extends Controller
         $step->sequence = $maxSequence + 1; // Set the sequence number
         $step->save();
         $message = 'Step Added Successfully';
-        return Redirect::route('admin.roadmap.step.create', ['id'=>$id,'roadmap' => $roadmap])->with('message', $message);
+        return Redirect::route('admin.roadmap.step.create', ['id' => $id, 'roadmap' => $roadmap])->with('message', $message);
     }
 
     /**
@@ -97,9 +97,10 @@ class RoadmapStepController extends Controller
      * @param  \App\Models\RoadmapStep  $roadmapStep
      * @return \Illuminate\Http\Response
      */
-    public function edit(RoadmapStep $roadmapStep)
+    public function edit($id): View
     {
-        //
+        $step = RoadmapStep::findOrFail($id);
+        return view('admin.roadmaps.steps.update', compact('step'));
     }
 
     /**
@@ -109,9 +110,17 @@ class RoadmapStepController extends Controller
      * @param  \App\Models\RoadmapStep  $roadmapStep
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, RoadmapStep $roadmapStep)
+    public function update(Request $request, $id): View
     {
-        //
+        $step = RoadmapStep::findOrFail($id);
+        $roadmap = Roadmap::findOrFail($step->roadmap_id);
+        if ($step) {
+            $step->title = $request->input('title');
+            $step->description = $request->input('description');
+        }
+        $step->save();
+        $steps = $this->getRoadmapStepsAndRoadmapNameByRoadmap($roadmap->id);
+        return view('admin.roadmaps.steps.index', compact(['steps', 'roadmap']))->with('success', 'Step Updated Successfully');
     }
 
     /**
@@ -120,16 +129,16 @@ class RoadmapStepController extends Controller
      * @param  \App\Models\RoadmapStep  $roadmapStep
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, $stepId, $roadmapId) : RedirectResponse
+    public function destroy(Request $request, $stepId, $roadmapId): RedirectResponse
     {
         $roadmapStep = RoadmapStep::findOrFail($stepId);
         $roadmapStep->delete();
-    
+
         $request->session()->push('success', 'Step deleted successfully.');
-        
+
         return redirect()->route('admin.roadmap.steps', ['id' => $roadmapId])->with('message', 'Step Deleted Successfully');;
     }
-    
+
 
     public function destroyAll($roadmapId)
     {
