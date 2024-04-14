@@ -66,4 +66,11 @@ class User extends Authenticatable
      $adminsCount = User::where('is_admin',1)->count();
       return $adminsCount>1 ? false: true;
     }
+
+     /**
+     * Get the reviews for the user.
+     */
+    public function reviews(){
+        return $this->hasMany(Review::class);
+    }
 }

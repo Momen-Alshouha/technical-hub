@@ -13,4 +13,12 @@ class Review extends Model
     public static function countReviews() {
         return self::count();
     }
+
+     /**
+     * Get the user that owns the review
+     */
+
+     public function user(){
+        return $this->belongsTo(User::class);
+     }
 }
