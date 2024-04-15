@@ -45,31 +45,37 @@ Before proceeding with the installation, ensure you have Apache installed and co
     cd technical-hub
     ```
 
-3. **Copy `.env.example` to `.env`:**
+3. **install composer**
+
+    ```
+    composer install
+    ```
+    
+4. **Copy `.env.example` to `.env`:**
 
     ```
     cp .env.example .env
     ```
 
-4. **Generate application key:**
+5. **Generate application key:**
 
     ```
     php artisan key:generate
     ```
 
-5. **Migrate the database:**
+6. **Migrate the database:**
 
     ```
     php artisan migrate
     ```
 
-6. **Run the database seeder:**
+7. **Run the database seeder:**
 
     ```
     php artisan db:seed
     ```
     
-7. **Serve the application:**
+8. **Serve the application:**
 
     ```
     php artisan serve
