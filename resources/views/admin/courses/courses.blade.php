@@ -33,10 +33,10 @@
                         <button type="submit" class="btn btn-primary">Update</button>
                     </form>
 
-                    <form action="{{route('courses.destroy',$course->id)}}" method="POST">
+                    <form action="{{route('courses.destroy',$course->id)}}" method="POST" id="deleteForm{{$course->id}}">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Delete</button>
+                        <button type="button" class="btn btn-danger delete-btn" data-id="{{$course->id}}" data-target="#confirmDeleteModal" data-toggle="modal">Delete</button>
                     </form>
 
                 </td>

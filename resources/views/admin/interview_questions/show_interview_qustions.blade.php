@@ -34,10 +34,10 @@
             <button type="submit" class="btn btn-primary">Update</button>
             </form>
 
-            <form method="POST" action="{{route('interview_qustions.destroy',$qustion->id)}}">
+            <form method="POST" action="{{route('interview_qustions.destroy',$qustion->id)}}" id="deleteForm{{$qustion->id}}">
             @csrf
             @method('DELETE')
-            <button type="submit" class="btn btn-danger">Delete</button>
+            <button type="button" class="btn btn-danger delete-btn" data-id="{{$qustion->id}}" data-target="#confirmDeleteModal" data-toggle="modal">Delete</button>
             </form></td>
             </tr>
             @endforeach

@@ -36,10 +36,10 @@
                     </form>
 
 
-                    <form class="d-inline" action="{{ route('admin.roadmap.step.destroy', ['stepId' => $step['id'], 'roadmapId' => $roadmap->id]) }}" method="POST">
+                    <form class="d-inline" action="{{ route('admin.roadmap.step.destroy', ['stepId' => $step['id'], 'roadmapId' => $roadmap->id]) }}" method="POST" id="deleteForm{{$step['id']}}">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Delete</button>
+                        <button type="button" class="btn btn-danger delete-btn" data-id="{{$roadmap->id}}" data-target="#confirmDeleteModal" data-toggle="modal">Delete</button>
                     </form>
 
                 </td>
@@ -49,19 +49,19 @@
     </table>
 </div>
 @else
-<span class="d-block mt-3 container display-5">No Roadmap Steps Available</span>
+<span class="d-block mt-3 display-5">No Roadmap Steps Available</span>
 @endif
-<div class="m-3 actions">
+<div class="my-3 actions">
     <form class="d-inline m-1" action="{{ route('admin.roadmap.step.create', $roadmap->id) }}" method="POST">
         @csrf
         @method('GET')
         <button type="submit" class="btn btn-primary">Add Step</button>
     </form>
     @if(count($steps))
-    <form class="d-inline m-1" action="{{ route('admin.roadmap.steps.destroy', $roadmap->id) }}" method="POST">
+    <form class="d-inline m-1" action="{{ route('admin.roadmap.steps.destroy', $roadmap->id) }}" method="POST" id="deleteForm{{$roadmap->id}}">
         @csrf
         @method('DELETE')
-        <button type="submit" class="btn btn-danger">Delete All Steps</button>
+        <button type="button" class="btn btn-danger delete-btn" data-id="{{$roadmap->id}}" data-target="#confirmDeleteModal" data-toggle="modal">Delete All Steps</button>
     </form>
     @endif
 </div>

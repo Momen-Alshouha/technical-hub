@@ -35,10 +35,10 @@
                     </form>
 
 
-                    <form class="d-inline" action="{{route('roadmap_category.destroy',$category->id)}}" method="POST">
+                    <form class="d-inline" action="{{route('roadmap_category.destroy',$category->id)}}" method="POST" id="deleteForm{{$category->id}}">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Delete</button>
+                        <button type="button" class="btn btn-danger delete-btn" data-id="{{$category->id}}" data-target="#confirmDeleteModal" data-toggle="modal">Delete</button>
                     </form>
                 </td>
             </tr>

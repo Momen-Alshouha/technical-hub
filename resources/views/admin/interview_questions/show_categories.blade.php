@@ -34,10 +34,10 @@
                     </form>
 
 
-                    <form class="d-inline" action="{{route('interview_qustions_category.destroy',$category->id)}}" method="POST">
+                    <form class="d-inline" action="{{route('interview_qustions_category.destroy',$category->id)}}" method="POST" id="deleteForm{{$category->id}}">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Delete</button>
+                        <button class="btn btn-danger delete-btn" type="button" data-id="{{$category->id}}" data-toggle="modal" data-target="#confirmDeleteModal">Delete</button>
                     </form>
                 </td>
             </tr>

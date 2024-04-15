@@ -134,9 +134,9 @@ class RoadmapStepController extends Controller
         $roadmapStep = RoadmapStep::findOrFail($stepId);
         $roadmapStep->delete();
 
-        $request->session()->push('success', 'Step deleted successfully.');
+        $request->session()->push('success', 'Deleted Successfully.');
 
-        return redirect()->route('admin.roadmap.steps', ['id' => $roadmapId])->with('message', 'Step Deleted Successfully');;
+        return redirect()->route('admin.roadmap.steps', ['id' => $roadmapId])->with('message', 'Deleted Successfully');;
     }
 
 
