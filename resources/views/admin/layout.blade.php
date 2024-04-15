@@ -15,11 +15,6 @@ $confirmDeleteModal = view('shared.confirm-delete-modal')->render();
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
 
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
-
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
@@ -57,29 +52,28 @@ $confirmDeleteModal = view('shared.confirm-delete-modal')->render();
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="{{route('dashboard')}}" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
-                    <a href="{{route('users')}}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Users</a>
-                    <a href="{{route('reviews.admin.index')}}" class="nav-item nav-link"><i class="fa fa-comment me-2"></i>Reviews</a>
+                    <a href="{{route('dashboard')}}" class="nav-item nav-link my-1 {{Request::is('admin/dashboard') ? 'active' : ''}}"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <a href="{{route('users')}}" class="nav-item nav-link my-1 {{Request::is('admin/users') ? 'active' : ''}}"><i class="fa fa-th me-2"></i>Users</a>
+                    <a href="{{route('reviews.admin.index')}}" class="nav-item nav-link my-1 {{Request::is('admin/reviews') ? 'active' : ''}}"><i class="fa fa-comment me-2"></i>Reviews</a>
 
                     <div class="nav-item dropdown">
-                        <a href="" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-question-circle me-2"></i>Questions Categories</a>
+                        <a href="" class="nav-link dropdown-toggle my-1 {{Request::is('admin/interview_qustions_category/create') ||Request::is('admin/interview_qustions_category') ? 'active' : ''}}" data-bs-toggle="dropdown"><i class="fa fa-question-circle me-2"></i>Questions Categories</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="{{route('interview_qustions_category.index')}}" class="dropdown-item">Show Categories</a>
-                            <a href="{{route('interview_qustions_category.create')}}" class="dropdown-item">Add Category</a>
+                            <a href="{{route('interview_qustions_category.index')}}" class="dropdown-item my-1 {{Request::is('admin/interview_qustions_category') ? 'active' : ''}}">Show Categories</a>
+                            <a href="{{route('interview_qustions_category.create')}}" class="dropdown-item my-1 {{Request::is('admin/interview_qustions_category/create') ? 'active' : ''}}">Add Category</a>
                         </div>
                     </div>
 
                     <div class="nav-item dropdown">
-                        <a href="" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-question me-2"></i>Questions</a>
+                        <a href="" class="nav-link dropdown-toggle my-1 {{Request::is('admin/interview_qustions/create') ||Request::is('admin/interview_qustions') ? 'active' : ''}}" data-bs-toggle="dropdown"><i class="fa fa-question me-2"></i>Questions</a>
                         <div class="dropdown-menu bg-transparent border-0">
-
-                            <a href="{{route('interview_qustions.index')}}" class="dropdown-item">Show Questions</a>
-                            <a href="{{route('interview_qustions.create')}}" class="dropdown-item">Add Interview Question</a>
+                            <a href="{{route('interview_qustions.index')}}" class="dropdown-item my-1 {{Request::is('admin/interview_qustions') ? 'active' : ''}}">Show Questions</a>
+                            <a href="{{route('interview_qustions.create')}}" class="dropdown-item my-1 {{Request::is('admin/interview_qustions/create') ? 'active' : ''}}">Add Interview Questions</a>
                         </div>
                     </div>
 
                     <div class="nav-item dropdown">
-                        <a href="" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Courses</a>
+                        <a href="" class="nav-link dropdown-toggle {{Request::is('admin/courses') ||Request::is('admin/courses/create') ? 'active' : ''}}" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Courses</a>
                         <div class="dropdown-menu bg-transparent border-0">
                             <a href="{{route('courses.index')}}" class="dropdown-item">Show Courses</a>
                             <a href="{{route('courses.create')}}" class="dropdown-item">Add Course</a>
@@ -87,18 +81,18 @@ $confirmDeleteModal = view('shared.confirm-delete-modal')->render();
                     </div>
 
                     <div class="nav-item dropdown">
-                        <a href="" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Roadmaps Categories</a>
+                        <a href="" class="nav-link dropdown-toggle {{Request::is('admin/roadmaps/categories') ||Request::is('admin/roadmap/category/create') ? 'active' : ''}}" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Roadmaps Categories</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="{{route('roadmaps.categories.index')}}" class="dropdown-item">Show Categories</a>
-                            <a href="{{route('roadmaps.category.create')}}" class="dropdown-item">Add Category</a>
+                            <a href="{{route('roadmaps.categories.index')}}" class="dropdown-item {{Request::is('admin/roadmaps/categories') ? 'active' : ''}}">Show Categories</a>
+                            <a href="{{route('roadmaps.category.create')}}" class="dropdown-item {{Request::is('admin/roadmap/category/create') ? 'active' : ''}}">Add Category</a>
                         </div>
                     </div>
 
                     <div class="nav-item dropdown">
-                        <a href="" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Roadmaps</a>
+                        <a href="" class="nav-link dropdown-toggle {{Request::is('admin/roadmaps') || Request::is('admin/roadmap/create') ? 'active' : '' }}" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Roadmaps</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="{{route('admin.roadmaps.index')}}" class="dropdown-item">Show Roadmaps</a>
-                            <a href="{{route('admin.roadmap.create')}}" class="dropdown-item">Add Roadmap</a>
+                            <a href="{{route('admin.roadmaps.index')}}" class="dropdown-item {{Request::is('admin/roadmaps') ? 'active' : ''}}">Show Roadmaps</a>
+                            <a href="{{route('admin.roadmap.create')}}" class="dropdown-item {{Request::is('admin/roadmap/create') ? 'active' : ''}}">Add Roadmap</a>
                         </div>
                     </div>
 

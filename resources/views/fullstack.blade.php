@@ -15,16 +15,16 @@
 <div class="container">
     <h3>What is Full-Stack Development ?</h3>
     <p>
-        It refers to the development of both front end(client side) and back end(server side) portions of web application. <br>
+        It refers to the development of both front end(client side) and back end(server side) portions of web application. 
     </p>
 </div>
    <div class="container">
     <h3>Who is Full stack web Developers ?</h3>
     <p>
-        Full stack web developers have the ability to design complete web applications and websites. They work on the frontend, backend, database and debugging of web applications or websites. <br>
+        Full stack web developers have the ability to design complete web applications and websites. They work on the frontend, backend, database and debugging of web applications or websites. 
     </p>
     <h3>Technology related to full stack development:</h3>
-    <h3>1. Front-End</h3><br>
+    <h3>1. Front-End</h3>
    <div class="container">
         <h4>A. HTML - HyperText Markup Language </h4>
         <p>HTML stands for HyperText Markup Language. It is used to form the “skeleton”, or the base, of any website. It lays out a website’s general structure and content. The elements that you see on the screen - buttons, images, sliders, date pickers, texts, lists, etc. are all added using HTML. 
@@ -41,7 +41,7 @@
             Now that we have seen the three fundamentals of front end development, let us look at a few other fundamental skills needed for a front end developer.
         </p>
    </div>
-    <h3>2. Back-End</h3><br>
+    <h3>2. Back-End</h3>
    <div class="container">
         <h4>A. PHP </h4>
         <p>
@@ -87,7 +87,7 @@
     <ul>LAMP Stack: Linux, Apache, MySQL and PHP.</ul>
     <h4>You’re All Set</h4>
     <p>
-        I hope this article gave you the idea of what steps you can follow to become a full-stack developer, and good luck on your journey to become an awesome full-stack Developer! <br><br>
+        I hope this article gave you the idea of what steps you can follow to become a full-stack developer, and good luck on your journey to become an awesome full-stack Developer! 
 
         Keep in mind that this roadmap is merely a guideline for learning, not concrete rules. The web tools and technologies keep on changing and it is essential to keep yourself up-to-date and update your skills. You can always choose the learning path that matches your schedule, finances, and skill level after doing your own research too! 
     </p>

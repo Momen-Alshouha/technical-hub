@@ -10,23 +10,23 @@
         <div class="form-group">
             <label for="name">Cateogry Name</label>
             <input value="{{$category->name}}" name="name" type="text" class="form-control" id="name">
-        </div><br>
+        </div>
         <div class="form-group">
             <label for="description">Category Description</label>
             <input value="{{$category->description}}" name="description" type="text" class="form-control" id="description">
-        </div><br>
+        </div>
         <div class="form-group">
-            <label for="image">Current Image</label><br>
+            <label for="image">Current Image</label>
             @if ($category->image)
             <img src="{{asset('public/Image/roadmaps_categories/'.$category->image)}}" alt="Current Image" style="max-width: 200px;">
             @else
             <p>No image available</p>
             @endif
-        </div><br>
+        </div>
         <div class="form-group">
             <label for="image">Update Image</label>
             <input type="file" class="form-control" name="image" id="image">
-        </div><br>
+        </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>

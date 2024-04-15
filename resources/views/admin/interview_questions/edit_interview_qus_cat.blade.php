@@ -11,26 +11,26 @@
         <div class="form-group">
             <label for="title">Category Title</label>
             <input value="{{ $category->title }}" name="title" type="text" class="form-control" id="title">
-        </div><br>
+        </div>
 
         <div class="form-group">
             <label for="description">Description</label>
             <input value="{{ $category->description }}" name="description" type="text" class="form-control" id="description">
-        </div><br>
+        </div>
 
         <div class="form-group">
-            <label for="image">Current Image</label><br>
+            <label for="image">Current Image</label>
             @if ($category->image)
             <img src="{{ asset('public/Image/' . $category->image) }}" alt="Current Image" style="max-width: 200px;">
             @else
             <p>No image available</p>
             @endif
-        </div><br>
+        </div>
 
         <div class="form-group">
             <label for="image">Upload New Image</label>
             <input type="file" name="image" id="image">
-        </div><br>
+        </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>

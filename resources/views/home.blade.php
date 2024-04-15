@@ -100,7 +100,7 @@
                                 <div class="p-4">
                                     <i class="fa fa-3x fa-globe text-primary mb-4"></i>
                                     <h5 class="mb-3">Interview quistions</h5>
-                                    <p>The Most Asked Interview Qustions.<br>Help you crack your next interview</p>
+                                    <p>The Most Asked Interview Qustions.Help you crack your next interview</p>
                                 </div>
                             
                             </div>

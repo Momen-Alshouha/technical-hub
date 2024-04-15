@@ -27,7 +27,7 @@
         In simple terms, a backend developer is a server-side developer responsible for collecting, storing, and modifying data. 
     </p>
    <div class="container">
-    <h3>Skills Needed to  Become a Back-End Developer</h3><br>
+    <h3>Skills Needed to  Become a Back-End Developer</h3>
     
     <h4>1. Knowledge of Web Server </h4>
     <p>
@@ -39,10 +39,10 @@
     </p>
     <p>
        <div class="container">
-        <h5>A. [JS+NodeJS]</h5> – With JavaScript being the most demanding programming language, you can explore various new concepts and build a very amazing website. It is used to build interactive and dynamic websites. For JS, we have a framework which is NodeJS, which is designed with real-time, push-based architectures, the single-threaded model used for backend API services. NodeJS allows you to run JavaScript on the server. <br><br>
-        <h5>B. [Python+Django]</h5> – Python is the easiest of all programming languages and with Django, it plays a perfect combination to build a website. With less code, you can build better and more easy web applications. Python is most commonly used for developing websites and it performs quicker implementations. Django is the most secure and scalable framework one should work with. <br><br>
+        <h5>A. [JS+NodeJS]</h5> – With JavaScript being the most demanding programming language, you can explore various new concepts and build a very amazing website. It is used to build interactive and dynamic websites. For JS, we have a framework which is NodeJS, which is designed with real-time, push-based architectures, the single-threaded model used for backend API services. NodeJS allows you to run JavaScript on the server. 
+        <h5>B. [Python+Django]</h5> – Python is the easiest of all programming languages and with Django, it plays a perfect combination to build a website. With less code, you can build better and more easy web applications. Python is most commonly used for developing websites and it performs quicker implementations. Django is the most secure and scalable framework one should work with. 
         <h5>C. [PHP+Laravel]</h5> – PHP (HyperText Preprocessor) is a general-purpose scripting language well suited for web development. It is a fast, flexible, and pragmatic language which powers everything from blogs to the most popular websites. Laravel is an open-source framework used to build a wide range of web applications. It is purely a server-side framework that manages data and uses MVC (Model View Controller) to break an application’s back-end architecture into logical parts making it easier to build. 
-    </p><br>
+    </p>
        </div>
     <h4>3. Version Control System (Git) </h4>
     <p>

@@ -58,7 +58,7 @@
     <p>
         Most of the apps today are built as cloud-native. So you need to make yourself familiar with major cloud providers. AWS, Azure and Google Cloud are the leading players and they provide free courses about their tools too. 
     </p>
-    <br><br>
+    
     <p>
         There is lot to learn in this field with constantly changing landscape. But with a good foundation and practice, you can build a solid career in this field which is growing very quickly.
     </p>

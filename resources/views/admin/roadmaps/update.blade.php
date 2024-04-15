@@ -15,31 +15,31 @@
                 </option>
                 @endforeach
             </select>
-        </div><br>
+        </div>
 
         <div class="form-group">
             <label for="title">Roadmap Name</label>
             <input value="{{$roadmap->name}}" name="name" type="text" class="form-control" id="name">
-        </div><br>
+        </div>
 
         <div class="form-group">
             <label for="description">Roadmap Description</label>
             <input value="{{$roadmap->description}}" name="description" type="text" class="form-control" id="description">
-        </div><br>
+        </div>
 
         <div class="form-group">
-            <label for="image">Current Image</label><br>
+            <label for="image">Current Image</label>
             @if ($roadmap->image)
             <img src="{{ asset('public/Image/roadmaps/' . $roadmap->image) }}" alt="Current Image" style="max-width: 200px;">
             @else
             <p>No image available</p>
             @endif
-        </div><br>
+        </div>
 
         <div class="form-group">
             <label for="image">Upload New Image</label>
             <input class="form-control" type="file" name="image" id="image">
-        </div><br>
+        </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>

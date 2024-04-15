@@ -16,15 +16,15 @@
                 </option>
                 @endforeach
             </select>
-        </div><br>
+        </div>
         <div class="form-group">
             <label for="qustion">Qustion</label>
             <input value="{{$question->qustion}}" name="qustion" type="text" class="form-control" id="qustion">
-        </div><br>
+        </div>
         <div class="form-group">
             <label for="answer">Answer</label>
             <input value="{{$question->answer}}" type="text" name="answer" class="form-control" id="answer">
-        </div><br>
+        </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>

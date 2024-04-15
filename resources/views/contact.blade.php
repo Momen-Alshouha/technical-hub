@@ -27,7 +27,7 @@
             </div>
             <div class="row g-4">
                 <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <h3>Get In Touch</h3><br>
+                    <h3>Get In Touch</h3>
                     <div class="d-flex align-items-center mb-3">
                         <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-primary" style="width: 50px; height: 50px;">
                             <i class="fa fa-map-marker-alt text-white"></i>
@@ -54,7 +54,7 @@
                             <h5 class="text-primary">Email</h5>
                             <p class="mb-0">momenalshouha@outlook.com</p>
                         </div>
-                    </div><br>
+                    </div>
                     <a class="btn btn-primary" href="mailto:momenalshouha@outlook.com">Send Email</a>
                 </div>
                 <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.3s">

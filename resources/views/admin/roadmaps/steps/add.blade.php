@@ -16,12 +16,12 @@
         <div class="form-group">
             <label for="title">Step Title</label>
             <input name="title" type="text" class="form-control" id="title">
-        </div><br>
+        </div>
 
         <div class="form-group">
             <label for="description">Step Description</label>
             <input name="description" type="text" class="form-control" id="description">
-        </div><br>
+        </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
