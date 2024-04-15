@@ -93,7 +93,7 @@
                             {{ Auth::user()->name }}
                         </a>
 
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu dropdown-menu-end border-0 rounded-0 rounded-bottom m-0" aria-labelledby="navbarDropdown">
                             
                         @if(Auth::user())
                             <a class="dropdown-item" href="{{ route('user.profile', Auth::user()->id) }}">
