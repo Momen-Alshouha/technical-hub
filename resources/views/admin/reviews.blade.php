@@ -26,10 +26,10 @@
                 <td>{{$review->user->name}}</td>
                 <td>{{$review->description}}</td>
                 <td>
-                    <form method="POST" action="{{route('reviews.destroy',$review->id)}}">
+                    <form method="POST" action="{{route('reviews.destroy',$review->id)}}" id="deleteForm{{$review->id}}">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Delete</button>
+                        <button type="button" class="btn btn-danger delete-btn" data-id="{{$review->id}}" data-target="#confirmDeleteModal" data-toggle="modal">Delete</button>
                     </form>
                 </td>
             </tr>
