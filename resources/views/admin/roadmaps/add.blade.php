@@ -3,7 +3,7 @@
 @section('content')
 <h1 style="margin:30px">Add Roadmap</h1>
 <hr>
-<div class="add-form  container">
+<div class="add-form">
     <form action="{{route('admin.roadmap.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-group">

@@ -2,7 +2,6 @@
 
 @section('content')
 <h1 style="margin:30px">Roadmaps Categories</h1>
-<hr>
 <div class="container-fluid">
     @if ($message = Session::get('message'))
     <div class="alert alert-success" role="alert">

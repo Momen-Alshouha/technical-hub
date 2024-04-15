@@ -3,7 +3,7 @@
 @section('content')
 <h1 style="margin:30px">Edit Interview Qustion</h1>
 <hr>
-<div class="add-form container">
+<div class="add-form">
     <form action="{{route('interview_qustions.update',$question->id)}}" method="POST">
         @csrf
         @METHOD('PUT')

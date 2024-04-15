@@ -3,7 +3,7 @@
 @section('content')
 <h1 style="margin:30px">Edit Roadmap Category</h1>
 <hr>
-<div class="add-form  container">
+<div class="add-form">
     <form action="{{route('roadmap.category.update',$category->id)}}" method="POST" enctype="multipart/form-data">
         @csrf
         @METHOD('PUT')

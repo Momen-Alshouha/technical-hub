@@ -2,7 +2,6 @@
 
 @section('content')
 <h1 style="margin:30px">Courses</h1>
-<hr>
 <div class="container-fluid">
     @if ($message = Session::get('success'))
     <div class="alert alert-success" role="alert">

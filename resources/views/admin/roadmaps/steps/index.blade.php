@@ -4,8 +4,6 @@
 
 <h1 style="margin:30px"> {{$roadmap->name}} Roadmap Steps</h1>
 <h4 style="margin:30px">{{$roadmap->description}}</h4>
-<hr>
-
 <div class="container-fluid">
     @if ($message = Session::get('message'))
     <div class="container alert alert-success" role="alert">

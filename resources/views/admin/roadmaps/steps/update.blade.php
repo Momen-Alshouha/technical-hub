@@ -4,7 +4,7 @@
 <h1 style="margin:30px">Edit Step {{$step->title}}</h1>
 <hr>
 
-<div class="add-form container">
+<div class="add-form">
     @if ($message = Session::get('message'))
     <div class="alert alert-success" role="alert">
         {{$message}}
