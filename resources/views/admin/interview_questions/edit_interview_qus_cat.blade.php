@@ -18,10 +18,10 @@
             <input value="{{ $category->description }}" name="description" type="text" class="form-control" id="description">
         </div>
 
-        <div class="form-group">
+        <div class="form-group current-image">
             <label for="image">Current Image</label>
             @if ($category->image)
-            <img src="{{ asset('public/Image/' . $category->image) }}" alt="Current Image" style="max-width: 200px;">
+            <img src="{{ asset('public/Image/' . $category->image) }}" alt="Current Image" style="max-width: 320px;">
             @else
             <p>No image available</p>
             @endif

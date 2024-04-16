@@ -5,30 +5,6 @@
     --dark: #191C24;
 }
 
-.back-to-top {
-    position: fixed;
-    display: none;
-    right: 45px;
-    bottom: 45px;
-    z-index: 99;
-}
-
-
-/*** Spinner ***/
-#spinner {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity .5s ease-out, visibility 0s linear .5s;
-    z-index: 99999;
-}
-
-#spinner.show {
-    transition: opacity .5s ease-out, visibility 0s linear 0s;
-    visibility: visible;
-    opacity: 1;
-}
-
-
 /*** Button ***/
 .btn {
     transition: .5s;
@@ -106,18 +82,18 @@
 } 
 
 @media (max-width: 991.98px) {
-    /* .sidebar {
+     .sidebar {
         margin-left: -250px;
-    } */
+    } 
 
-    /* .sidebar.open {
+     .sidebar.open {
         margin-left: 0;
     }
 
     .content {
         width: 100%;
         margin-left: 0;
-    } */
+    } 
 }
 
 
@@ -244,39 +220,6 @@
     border-bottom-color: var(--primary);
 }
 
-
-/*** Testimonial ***/
-.progress .progress-bar {
-    width: 0px;
-    transition: 2s;
-}
-
-
-/*** Testimonial ***/
-.testimonial-carousel .owl-dots {
-    margin-top: 24px;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-}
-
-.testimonial-carousel .owl-dot {
-    position: relative;
-    display: inline-block;
-    margin: 0 5px;
-    width: 15px;
-    height: 15px;
-    border: 5px solid var(--primary);
-    border-radius: 15px;
-    transition: .5s;
-}
-
-.testimonial-carousel .owl-dot.active {
-    background: var(--dark);
-    border-color: var(--primary);
-}
-
-
 .add-form {
     width: 50%;
     margin: 20px;
@@ -284,4 +227,9 @@
 
 .navbar {
     height: 70px;
+}
+
+.form-group.current-image {
+    display: flex;
+    flex-direction: column;
 }
