@@ -28,8 +28,8 @@
                 <td>{{$roadmap->name}}</td>
                 <td>{{$roadmap->description}}</td>
                 <td>{{$roadmap->category->name}}</td>
-                <td><img src="{{asset('public/Image/roadmaps/'.$roadmap->image)}}" style="height: 150px; width: 150px;"></td>
-                <td>
+                <td><img src="{{asset('public/Image/roadmaps/'.$roadmap->image)}}" width="200px" height="200px" style="object-fit: cover;"></td>
+                <td style="display: flex; flex-direction:column; align-items:center;">
                     <form class=" text-white d-inline" action="{{route('admin.roadmap.steps',$roadmap->id)}}" method="POST">
                         @csrf
                         @method('GET')

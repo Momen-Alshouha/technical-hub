@@ -26,8 +26,8 @@
                 <th scope="row">{{$category->id}}</th>
                 <td>{{$category->name}}</td>
                 <td>{{$category->description}}</td>
-                <td><img src="{{asset('public/Image/roadmaps_categories/'.$category->image)}}" style="height: 150px; width: 150px;"></td>
-                <td>
+                <td><img src="{{asset('public/Image/roadmaps_categories/'.$category->image)}}" height="200px" width="200px" style="object-fit: cover;"></td>
+                <td style="display: flex; align-items:center;">
                     <form class="d-inline m-1" action="{{ route('roadmap.category.edit', $category->id) }}" method="POST">
                         @csrf
                         @method('GET')

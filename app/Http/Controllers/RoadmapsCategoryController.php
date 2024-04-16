@@ -120,6 +120,6 @@ class RoadmapsCategoryController extends Controller
     {
         $category = RoadmapsCategory::find($id);
         $category->delete();
-        return redirect()->route('roadmaps.categories.index')->with('message', 'Category deleted successfully');
+        return redirect()->route('roadmaps.categories.index')->with('message', 'Category Deleted Successfully');
     }
 }

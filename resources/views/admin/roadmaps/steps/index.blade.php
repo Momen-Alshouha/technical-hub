@@ -27,7 +27,7 @@
                 <th scope="row">{{$step['sequence']}}</th>
                 <td>{{$step['title']}}</td>
                 <td>{{$step['description']}}</td>
-                <td>
+                <td style="display: flex; align-items:center;">
                     
                     <form class="d-inline m-1" action="{{ route('admin.roadmap.step.edit', $step['id']) }}" method="POST">
                         @csrf

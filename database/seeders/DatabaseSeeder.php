@@ -8,7 +8,7 @@ use Database\Seeders\interviewQusCats;
 use Database\Seeders\users;
 use Database\Seeders\courses;
 use Database\Seeders\interviewQuestions;
-
+use Database\Seeders\RoadmapsCategories;
 
 
 class DatabaseSeeder extends Seeder
@@ -25,6 +25,8 @@ class DatabaseSeeder extends Seeder
         $this->call(interviewQuestions::class);
         $this->call(reviews::class);
         $this->call(courses::class);
-     
+        $this->call(RoadmapsCategories::class);
+        $this->call(Roadmaps::class);
+        $this->call(RoadmapsSteps::class);
     }
 }
