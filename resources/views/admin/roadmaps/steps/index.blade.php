@@ -39,7 +39,7 @@
                     <form class="d-inline" action="{{ route('admin.roadmap.step.destroy', ['stepId' => $step['id'], 'roadmapId' => $roadmap->id]) }}" method="POST" id="deleteForm{{$step['id']}}">
                         @csrf
                         @method('DELETE')
-                        <button type="button" class="btn btn-danger delete-btn" data-id="{{$roadmap->id}}" data-target="#confirmDeleteModal" data-toggle="modal">Delete</button>
+                        <button type="button" class="btn btn-danger delete-btn" data-id="{{$step['id']}}" data-target="#confirmDeleteModal" data-toggle="modal">Delete</button>
                     </form>
 
                 </td>
