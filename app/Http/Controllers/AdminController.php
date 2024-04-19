@@ -14,6 +14,18 @@ use Illuminate\Contracts\View\View;
 
 class AdminController extends Controller
 {
+    /**
+     * Create a new AdminController instance.
+     *
+     * This constructor applies the 'admin' middleware to all methods
+     * in the controller, ensuring that only authenticated admin users
+     * can access the routes handled by this controller.
+     */
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
+
     public function index()
     {
         $totalUsers = User::count();
