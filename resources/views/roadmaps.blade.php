@@ -17,7 +17,7 @@
         <div class="row g-5">
             <div class="col-lg-7 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
                 <div class="position-relative h-100">
-                    <img class="img-fluid position-absolute w-150 h-100" src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20220424231007/Web-Development-Roadmap-2022.png" alt="" style="object-fit: cover;">
+                    <img loading="lazy" class="img-fluid position-absolute w-150 h-100" src="https://images.unsplash.com/photo-1587620962725-abab7fe55159?q=80&w=1931&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="programming" style="object-fit: cover;">
                 </div>
             </div>
             <div class="col-lg-5 wow fadeInUp" data-wow-delay="0.3s">
@@ -26,18 +26,11 @@
                 <p class="mb-4">TechnicalHUB is a platform to test your knowlege for technology jobs and review the most asked interview quistions.</p>
                 <p class="mb-4">We also get you connected with the right companies worldwide based on your skills and preferences, and do everything needed to make sure you get your dream job. </p>
                 <div class="row gy-2 gx-4 mb-4">
+                    @foreach($roadmapsCategories as $category)
                     <div class="col-sm-6">
-                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>front-end web development</p>
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i><a href="">{{$category->name}}</a></p>
                     </div>
-                    <div class="col-sm-6">
-                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>back-end web development</p>
-                    </div>
-                    <div class="col-sm-6">
-                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>DevOps Engineering</p>
-                    </div>                       
-                    <div class="col-sm-6">
-                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>full-stack web development</p>
-                    </div>                       
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -47,41 +40,19 @@
 <div class="container-xxl py-5 category">
     <div class="container">
         <div class="row g-3">
-            <div class="col-lg-7 col-md-6">
+            <div class="col-md-12">
                 <div class="row g-3">
-                    <div class="col-lg-12 col-md-12 wow zoomIn" data-wow-delay="0.1s">
-                        <a class="position-relative d-block overflow-hidden" href="{{route('frontend')}}">
-                            <img class="img-fluid" src="https://media.licdn.com/dms/image/D5612AQE69SAPa_b1fA/article-cover_image-shrink_720_1280/0/1687014406391?e=2147483647&v=beta&t=A0-wzOpoThQB6Pl5LKh9q2CuILMt87YEZOK0J3QKTxk">
-                            <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
-                                <h5 class="roadmap m-0">Front-End Web Development</h5>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.3s">
-                        <a class="position-relative d-block overflow-hidden" href="{{route('backend')}}">
-                            <img class="img-fluid" src="https://images.unsplash.com/photo-1613068687893-5e85b4638b56?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8YmFjayUyMGVuZCUyMGRldmVsb3BtZW50fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60">
-                            <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
-                                <h5 class="roadmap m-0">Back-End Web Develpoment</h5>
-                            </div>
-                        </a>
-                    </div>
+                    @foreach($roadmapsCategories as $category)
                     <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.5s">
-                        <a class="position-relative d-block overflow-hidden" href="{{route('fullstack')}}">
-                            <img class="img-fluid" src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y29kZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60" alt="">
+                        <a style="height: 100%;" class="position-relative d-block overflow-hidden" href="{{route('fullstack')}}">
+                            <img title="{{$category->description}}" style="width: 100%; height:100%; object-fit:cover;" class="img-fluid" src="{{asset('public/Image/roadmaps_categories/'.$category->image)}}" alt="">
                             <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
-                                <h5 class="roadmap m-0">Full-Stack Web Development</h5>
+                                <h5 class="roadmap m-0">{{$category->name}}</h5>
                             </div>
                         </a>
                     </div>
+                    @endforeach
                 </div>
-            </div>
-            <div class="col-lg-5 col-md-6 wow zoomIn" data-wow-delay="0.7s" style="min-height: 350px;">
-                <a class="position-relative d-block h-100 overflow-hidden" href="{{route('devops')}}">
-                    <img class="img-fluid position-absolute w-100 h-100" src="https://d3f1iyfxxz8i1e.cloudfront.net/courses/course_image/951f7752a26f.jpg" alt="" style="object-fit: cover;">
-                    <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin:  1px;">
-                        <h5 class="roadmap m-0">DevOps</h5>
-                    </div>
-                </a>
             </div>
         </div>
     </div>
