@@ -42,7 +42,7 @@
                 <div class="row g-3">
                     @foreach($roadmapsCategories as $category)
                     <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.5s">
-                        <a style="height: 100%;" class="position-relative d-block overflow-hidden" href="{{route('fullstack')}}">
+                        <a style="height: 100%;" class="position-relative d-block overflow-hidden" href="{{route('roadmap.roadmapsByCategory',$category->id)}}">
                             <img title="{{$category->description}}" style="width: 100%; height:100%; object-fit:cover;" class="img-fluid" src="{{asset('public/Image/roadmaps_categories/'.$category->image)}}" alt="">
                             <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
                                 <h5 class="roadmap m-0">{{$category->name}}</h5>
