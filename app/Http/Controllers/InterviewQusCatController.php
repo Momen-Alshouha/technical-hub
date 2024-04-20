@@ -75,16 +75,6 @@ class InterviewQusCatController extends Controller
         return redirect()->route('interview_qustions_category.index')->with('success', 'Category Added Succesfully');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Interview_Qus_Cat  $interview_Qus_Cat
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Interview_Qus_Cat $interview_Qus_Cat)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.

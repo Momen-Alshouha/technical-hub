@@ -43,18 +43,6 @@ class ReviewController extends Controller
         return view('add_review', ['success' => 'Thank you for your review!']);
     }
 
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Review  $review
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Review $review)
-    {
-        //
-    }
-
     /**
      * Remove the specified resource from storage.
      *
