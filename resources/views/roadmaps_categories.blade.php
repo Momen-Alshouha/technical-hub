@@ -21,14 +21,12 @@
                 </div>
             </div>
             <div class="col-lg-5 wow fadeInUp" data-wow-delay="0.3s">
-                <h6 class="section-title bg-white text-start text-primary pe-3">Technical Roadmaps</h6>
-                <h1 class="mb-4">Welcome to Technical roadmaps</h1>
                 <p class="mb-4">TechnicalHUB is a platform to test your knowlege for technology jobs and review the most asked interview quistions.</p>
                 <p class="mb-4">We also get you connected with the right companies worldwide based on your skills and preferences, and do everything needed to make sure you get your dream job. </p>
                 <div class="row gy-2 gx-4 mb-4">
                     @foreach($roadmapsCategories as $category)
                     <div class="col-sm-6">
-                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i><a href="">{{$category->name}}</a></p>
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i><a href="{{route('roadmap.roadmapsByCategory',$category->id)}}">{{$category->name}}</a></p>
                     </div>
                     @endforeach
                 </div>

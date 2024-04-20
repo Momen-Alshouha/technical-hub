@@ -27,6 +27,16 @@ class Roadmap extends Model
         return Roadmap::with('category')->get();
     }
 
+     /**
+     * Get roadmaps by category.
+     *
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    public static function getRoadmapsByCategory($categoryId)
+    {
+        return Roadmap::with('category')->where('cat_id',$categoryId)->get();
+    }
+
     /**
      * Define the inverse relationship between Roadmap and RoadmapsCategory.
      *
