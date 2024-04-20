@@ -119,22 +119,6 @@
             </div>
          
  
-         
-    
-     @php
-         use App\Models\Course;
-         use App\Models\Review;
-
-         $courses = Course::all();
-
-         $reviews = DB::table('reviews')
-        ->join('users','users.id','=','reviews.user_id')
-        ->select('reviews.*','users.*')->get();
-
-
-     @endphp
-
- 
 <!-- Service Authenticated end -->
 
 
@@ -150,15 +134,6 @@
             <div class="row g-3">
                 <div class="col-lg-12 col-md-6">
                     <div class="row g-3">
-                        {{-- <div class="col-lg-12 col-md-12 wow zoomIn" data-wow-delay="0.1s">
-                            <a class="position-relative d-block overflow-hidden" href="">
-                                <img class="img-fluid" src="img/cat-1.jpg" alt="">
-                                <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
-                                    <h5 class="m-0">Web Design</h5>
-                                    <small class="text-primary">49 Courses</small>
-                                </div>
-                            </a>
-                        </div> --}}
                         @foreach ($courses as $course)
                             <div class="col-lg-4 col-md-12 wow zoomIn" data-wow-delay="0.3s">
                                 <a target="_blank" class="position-relative d-block overflow-hidden" href="{{$course->link}}">
@@ -175,7 +150,6 @@
             </div>
         </div>
     </div>
-    <!-- Categories Start -->
 
     
     <!-- Testimonial Start -->

@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Contracts\View\View;
-use Illuminate\Http\Request;
+use App\Models\Course;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Class SiteController
@@ -12,13 +13,20 @@ use Illuminate\Http\Request;
 class SiteController extends Controller
 {
 
-        /**
-     * Display the about page.
+    /**
+     * Display the home page.
      *
      * @return View
      */
-    public function showHomePage() : View {
-        return view('home');
+    public function showHomePage(): View
+    {
+        $courses = Course::all();
+
+        $reviews = DB::table('reviews')
+       ->join('users','users.id','=','reviews.user_id')
+       ->select('reviews.*','users.*')->get();
+
+        return view('home', compact('courses','reviews'));
     }
 
     /**
@@ -26,7 +34,8 @@ class SiteController extends Controller
      *
      * @return View
      */
-    public function showAboutPage() : View {
+    public function showAboutPage(): View
+    {
         return view('about');
     }
 
@@ -35,7 +44,8 @@ class SiteController extends Controller
      *
      * @return View
      */
-    public function showContactPage() : View {
+    public function showContactPage(): View
+    {
         return view('contact');
     }
 }
