@@ -26,17 +26,4 @@ class Roadmap extends Controller
         $roadmap = ModelRoadmap::find($roadmapId);
         return view('roadmap_steps', compact('roadmapSteps','roadmap'));
     }
-
-    public function backend()
-    {
-        return view('backend');
-    }
-    public function fullstack()
-    {
-        return view('fullstack');
-    }
-    public function devops()
-    {
-        return view('devops');
-    }
 }
