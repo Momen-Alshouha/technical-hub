@@ -6,6 +6,7 @@ use App\Models\Review;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ReviewController extends Controller
 {
@@ -21,16 +22,6 @@ class ReviewController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create() : View
-    {
-        return view('add_review');
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -38,7 +29,10 @@ class ReviewController extends Controller
      */
     public function store(Request $request) : View
     {
-        $review = Review::create($request->all());
+        $review = Review::create([
+            'user_id' => Auth::id(),
+            'description' => $request->input('description'),
+        ]);
 
         return view('add_review', ['success' => 'Thank you for your review!']);
     }

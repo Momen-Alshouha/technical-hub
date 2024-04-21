@@ -19,7 +19,6 @@ Route::middleware('auth')->group(function () {
     Route::put('/user/{id}', [UserController::class, 'update'])->name('user.update');
 
     // Reviews
-    Route::get('/reviews/create', [ReviewController::class, 'create'])->name('reviews.create');
     Route::post('/reviews', [ReviewController::class, 'store'])->name('reviews.store');
 });
 

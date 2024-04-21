@@ -1,3 +1,7 @@
+<?php
+$reviewModal = view('shared.review-us')->render();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,6 +42,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{asset('js/review.js')}}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -46,9 +51,14 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </head>
 
 <body>
+    <!-- Review Modal -->
+    {!! $reviewModal !!}
     <!-- Spinner Start -->
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
@@ -73,7 +83,7 @@
                 <a href="{{route('roadmapsCategories')}}" class="nav-item nav-link {{Request::is('roadmaps_categories') ? 'active' : ''}}">Roadmaps</a>
                 <a href="{{route('contact')}}" class="nav-item nav-link {{Request::is('contact') ? 'active' : ''}}">Contact</a>
                 <a href="{{route('about')}}" class="nav-item nav-link {{Request::is('about') ? 'active' : ''}}">About</a>
-                    <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ms-auto">
                     <!-- Authentication Links -->
                     @guest
                     @if (Route::has('login'))
@@ -94,8 +104,8 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-end border-0 rounded-0 rounded-bottom m-0" aria-labelledby="navbarDropdown">
-                            
-                        @if(Auth::user())
+
+                            @if(Auth::user())
                             <a class="dropdown-item" href="{{ route('user.profile', Auth::user()->id) }}">
                                 {{ __('Profile') }}
                             </a>
@@ -109,12 +119,13 @@
                             </a>
                             @endif
 
-                            @if (Auth::check() && !auth()->user()->isAdmin())
-                            <a class="dropdown-item" href="{{route('reviews.create')}}" class="btn btn-primary">
 
-                                {{ __('Review Us') }}
-                            </a>
+                            @if (Auth::check() && !auth()->user()->isAdmin())
+                            <button style="color: #212529;" type="button" class="dropdown-item btn btn-primary" data-toggle="modal" data-target="#addReviewModal">
+                                Review Us
+                            </button>
                             @endif
+
 
                             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
