@@ -7,6 +7,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
@@ -40,6 +41,20 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    
+    /**
+     * Show the application's login form.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function showLoginForm()
+    {
+        // Store the previous URL in the session
+        Session::put('previousUrl', url()->previous());
+
+        return view('auth.login');
+    }
+
     /**
      * Log the user out of the application.
      *
@@ -70,6 +85,6 @@ class LoginController extends Controller
             return redirect()->route('dashboard');
         }
 
-        return redirect(RouteServiceProvider::HOME);
+        return redirect()->intended(Session::get('previousUrl', RouteServiceProvider::HOME));
     }
 }
