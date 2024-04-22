@@ -128,8 +128,6 @@
 @media (min-width: 992px) {
     .edit-profile-form {
         display: grid;
-        width: 50%;
-        margin: 0 auto;
     }
     
     .navbar .nav-item .dropdown-menu {
@@ -466,12 +464,11 @@
 
 .userAvatar {
     border-radius: 50%;
-    width: 100px;
-    height: 100px;
+    width: 60px;
+    height: 60px;
 }
 
 .go-home {
     font-size: 25px;
     font-weight: bold;
 }
-
